@@ -363,3 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 
 *.local
+
+volumes1/
+volumes/

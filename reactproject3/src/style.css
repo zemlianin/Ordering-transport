@@ -1,0 +1,91 @@
+@font-face {
+    font-family: "Stem-Bold"; 
+    src: url("../public/font-family/Stem-Bold.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: "Stem-ExtraLight"; 
+    src: url("../public/font-family/Stem-ExtraLight.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: "Stem-Light"; 
+    src: url("../public/font-family/Stem-Light.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: "Stem-Medium"; 
+    src: url("../public/font-family/Stem-Medium.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: "Stem-Regular"; 
+    src: url("../public/font-family/Stem-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: "Stem-SemiLight"; 
+    src: url("../public/font-family/Stem-SemiLight.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+@font-face {
+    font-family: "Stem-Thin"; 
+    src: url("../public/font-family/Stem-Thin.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+.text {
+    font-family: Stem-SemiLight,Montserrat,sans-serif;
+    letter-spacing: 1px;
+}
+
+.text-p {
+    font-family: Stem-Light,Montserrat,sans-serif;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.informationText {
+    font-family: Stem-Medium,Montserrat,sans-serif;
+    letter-spacing: 1px;
+    font-weight: 400;
+    color: dimgrey;
+}
+
+.image{
+    height: 24px;
+    width: 24px;
+}
+
+.leftBlockText{
+    font-family: Stem-Medium,Montserrat,sans-serif;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color:dimgray;
+    text-align: right;
+}
+
+.rightBlock{
+    border: 1px solid black;
+}
+
+.btn-outline-light {
+    background-color: #F2F1EF;
+    color: black;
+}
+
+.border {
+    border: 1px solid #F3F1EC;
+}

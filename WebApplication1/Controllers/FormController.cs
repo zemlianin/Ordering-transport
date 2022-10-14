@@ -6,21 +6,14 @@ namespace WebApplication1.Controllers
     [ApiController]
     [EnableCors("_myAllowSpecificOrigins")]
     [Route("[controller]")]
-    public class BookingController : ControllerBase
+    public class FormController : ControllerBase
     {
         [EnableCors("_myAllowSpecificOrigins")]
 
-        [HttpGet("post")]
-        public int Post(int a)
+        [HttpPost("post")]
+        public IActionResult Post(int phoneNumber, string userName, string transportType, DateTime date)
         {
-            return a;
-        }
-        [EnableCors("_myAllowSpecificOrigins")]
-
-        [HttpGet("Booking")]
-        public int Get()
-        {
-            return 123;
+            
         }
     }
 }

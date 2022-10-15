@@ -22,17 +22,17 @@ namespace WebApplication1.Controllers
             string telephon,
             double x,
             double y,
-            DateTime beginDate,
-            DateTime endDate,
+            string beginDate,
+            string endDate,
             string typeOfVehicle,
             int priority)
         {
            /* try
-            {*/
+            {
                 if (beginDate > endDate)
                 {
                     return BadRequest("Время начала меньше либо равно времени конца.");
-                }
+                }*/
                 using var context = new ApplicationContext();
                 var customer = context.Customers.First(rec => rec.PhoneNumber == telephon && rec.UserName == $"{lastName} {name}");
                 if (customer == null)

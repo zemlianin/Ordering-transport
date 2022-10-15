@@ -23,7 +23,7 @@ namespace WebApplication1.Models
         }
         public string TransportType { get; set; }
 
-        public SqlDateTime BeginDate { get; set; }
-        public SqlDateTime EndDate { get; set; }
+        public string BeginDate { get; set; }
+        public string EndDate { get; set; }
     }
 }

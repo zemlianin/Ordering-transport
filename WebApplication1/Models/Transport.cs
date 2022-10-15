@@ -6,7 +6,7 @@ namespace WebApplication1.Models
     {
         public int Id { get; set; }
         public string TypePark { get; set; }
-        public TransportTypes transportType { get; set; }
+        public string transportType { get; set; }
         public string Name { get; set; }
         public string Number { get; set; }
         //List<DateSpan>

@@ -21,7 +21,7 @@ namespace WebApplication1
                                   policy =>
                                   {
                                       policy.WithOrigins("https://localhost:3000").AllowAnyHeader()
-                                .AllowAnyMethod(); ;
+                                .AllowAnyMethod();
                                   });
             });
 
@@ -37,7 +37,7 @@ namespace WebApplication1
             
             app.UseHttpsRedirection();
             app.UseCors(MyAllowSpecificOrigins);
-            app.UseAuthorization();
+            // app.UseAuthorization();
 
 
             app.MapControllers();

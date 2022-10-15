@@ -16,7 +16,7 @@ namespace WebApplication1.Controllers
         [HttpPost("post")]
         public IActionResult Post(int customerId, string transportType, DateTime beginDate, DateTime endDate)
         {
-            try
+            /*try
             {
                 if (beginDate > endDate)
                 {
@@ -25,8 +25,8 @@ namespace WebApplication1.Controllers
                 using var context = new ApplicationContext();
                 context.Forms.Add(new()
                 {
-                    CustomerId = customerId,
-                    TransportType = (TransportTypes)Enum.Parse(typeof(TransportTypes), transportType, true),
+                    CustomeId = customerId,
+                    TransportType = transportType,
                     BeginDate = beginDate,
                     EndDate = endDate,
                 });
@@ -35,7 +35,8 @@ namespace WebApplication1.Controllers
             } catch
             {
                 return BadRequest("Что-то пошло не так при отправке формы.");
-            }
+            }*/
+            return Ok();
         }
 
         [EnableCors("_myAllowSpecificOrigins")]
@@ -43,16 +44,12 @@ namespace WebApplication1.Controllers
         [HttpGet("get")]
         public IActionResult Get(int formId)
         {
-            try
+            return Ok(new Form()
             {
-                using var context = new ApplicationContext();
-                var answer = context.Forms.First(form => form.Id == formId);
-                context.SaveChanges();
-                return Ok(answer);
-            } catch
-            {
-                return BadRequest("Что-то пошло не так при получении формы.");
-            }
+                Id = formId,
+                BeginDate = DateTime.Now,
+                EndDate = DateTime.Now.AddDays(2),
+            });
         }
 
 
@@ -61,7 +58,7 @@ namespace WebApplication1.Controllers
         [HttpDelete("delete")]
         public IActionResult Delete(int formId)
         {
-            try
+            /*try
             {
                 using var context = new ApplicationContext();
                 var form = context.Forms.First(item => item.Id == formId);
@@ -72,7 +69,8 @@ namespace WebApplication1.Controllers
             catch
             {
                 return BadRequest("Что-то пошло не так при получении формы.");
-            }
+            }*/
+            return Ok();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace WebApplication1.Controllers
         [HttpGet("get")]
         public Transport[] Get()
         {
-            return new Transport[] {new Transport() { DriverId = 1, Id = 1, Type = "tractor"}, new Transport() { DriverId = 2, Id = 2, Type = "tractor" } };
+            return new Transport[] {new Transport() { DriverId = 1, Id = 1, transportType = "tractor"}, new Transport() { DriverId = 2, Id = 2, transportType = "tractor" } };
         }
     }
 }

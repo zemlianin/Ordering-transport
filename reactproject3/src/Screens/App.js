@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/enter_page.css';
 import '../Styles/style.css';
 import { Link } from "react-router-dom";
+import LogoField from '../Components/LogoField';
 
 // Группы объектов
 // var groups = [
@@ -131,25 +132,14 @@ import { Link } from "react-router-dom";
 
 
 function App() {
-    console.log("+++");
-         const response = fetch("https://localhost:7090/Transport/post");
+    // console.log("+++");
+    // const response = fetch("https://localhost:7090/Transport/post");
     //const data =  response.json();
     //console.log(resp);
     return (
         <div>
-            <header className="p-3 border">
-                <div className="px-3 py-2 text-bg-white">
-                    <div className="container">
-                        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                            <a href="/" className="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-                                <span className="bi me-2">
-                                    <img src="https://polyus.com/img/logo_dark_ru.svg" width="200" height="40" alt="company pic" />
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <LogoField />
+
 
             <body>
                 <div className="modal modal-sheet position-static d-block py-5 back2"

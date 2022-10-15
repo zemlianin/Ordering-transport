@@ -31,12 +31,12 @@ namespace WebApplication1.Controllers
             }
         }
         [EnableCors("_myAllowSpecificOrigins")]
-        [HttpGet("realget")]
-        public IActionResult Get2(string type, string date)
+        [HttpGet("get")]
+        public IActionResult Get(string type, string date)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                var t = db.Transport.Where(a => a.TypePark == type);
+                var t = db.Transport.Where(a => a.TypePark == type).ToList();
                 return Ok(t);
             }
                 
@@ -44,8 +44,8 @@ namespace WebApplication1.Controllers
 
         }
         [EnableCors("_myAllowSpecificOrigins")]
-        [HttpGet("get")]
-        public IActionResult Get(string type, string date)
+        [HttpGet("simularget")]
+        public IActionResult Get2(string type, string date)
         {
             List<Transport> tr1 = new List<Transport>() { new Transport { Id = 0, Driver = new Driver(), Name = "Камаз", 
                 Number = "117A", DriverId = 1, transportType = "Вышка(35м)", TypePark = "Вышка"  },

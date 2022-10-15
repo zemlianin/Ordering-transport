@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TeamSearcher</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link href="style.css" rel="stylesheet">
+        <link href="main_customer_list.css" rel="stylesheet">
+      </head> 
+    <body>
+      <nav class="py-2 bg-light border-bottom">
+        <div class="container d-flex flex-wrap">
+          <ul class="nav me-auto">
+            <li class="nav-item hov0">
+              <a href="#" class="nav-link link-dark px-2 text-menu">НОВАЯ ЗАЯВКА</a>
+              <div class="bl_yel0"></div>
+            </li>
+            <li class="nav-item hov1">
+              <a href="#" class="nav-link link-dark px-2 text-menu">СПИСОК ЗАЯВОК</a>
+              <div class="bl_yel1"></div>
+            </li>
+            <li class="nav-item hov2">
+              <a href="#" class="nav-link link-dark px-2 text-menu">КАРТА</a>
+              <div class="bl_yel2"></div>
+            </li>
+          </ul>
+          <ul class="nav">
+            <li class="nav-item"><a class="nav-link link-dark px-2 text-menu">ЗАКАЗЧИК</a></li>
+          </ul>
+        </div>
+      </nav>
+      <header class="p-3 border">
+        <div class="px-3 py-2 text-bg-white">
+          <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+              <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                <span class="bi me-2"><img src="https://polyus.com/img/logo_dark_ru.svg" width="200" height="40"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="bg-light">
+
+
+        <div class="modal modal-sheet position-static d-block py-5 back" tabindex="-1" role="dialog" id="modalSheet">
+            <div class="container form-list">
+                <div class="w-auto modal-content rounded-4 shadow list-group">
+                    <div class="col-md-7 col-lg-8 list">
+                        <h4 class="mb-3 text">СПИСОК ЗАЯВОК</h4>
+                        <form class="needs-validation" novalidate="">
+                          <div class="row g-3">
+                
+                            <div class="col-6">
+                              <label for="date" class="form-label text">Начальная дата</label>
+                              <input type="text" class="form-control" id="date_start" placeholder="01.01.2001">
+                              <div class="invalid-feedback">
+                                Пожалуйста введите начальную дату корректно.
+                              </div>
+                            </div>
+                            <div class="col-6">
+                              <label for="date" class="form-label text">Конечная дата</label>
+                              <input type="text" class="form-control" id="date_finish" placeholder="02.02.2025">
+                              <div class="invalid-feedback">
+                                  Пожалуйста введите конечную дату корректно.
+                              </div>
+                            </div>
+                
+                            <div class="col-md-12">
+                                <hr>
+                            </div>
+      
+                          <div class="col-md-12">
+                            <label for="car" class="form-label text">Тип машины</label>
+                            <select class="form-select text" id="car" required="">
+                              <option value="">Выберите тип машины</option>
+                              <option>Погрузчик</option>
+                              <option>Трактор</option>
+                              <option>Самосвал</option>
+                            </select>
+                            <div class="invalid-feedback">
+                              Выберите корректный тип машины.
+                            </div>
+                          </div>
+                
+                          <div class="col-md-12">
+                            <button class="w-100 btn btn-warning btn-lg text-p" type="submit">ПРИМЕНИТЬ ФИЛЬТР</button>
+                        </div>
+                        </form>
+                      </div>
+
+                      <div class="list-group w-auto bot-block">
+
+                        <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                              <div>
+                                <h6 class="mb-0 text-list">Россия, Чебоксарская область</h6>
+                                <p class="mb-0 opacity-75">Погрузчик</p>
+                              </div>
+                              <div>
+                                <small class="opacity-50 text-nowrap">c 12.06.2022</small>
+                                <small class="opacity-50 text-nowrap">до 12.06.2023</small>
+                              </div>
+                            </div>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                              <div>
+                                <h6 class="mb-0 text-list">Россия, Архангельская область</h6>
+                                <p class="mb-0 opacity-75">Самосвал</p>
+                              </div>
+                              <div>
+                                <small class="opacity-50 text-nowrap">c 01.02.2020</small>
+                                <small class="opacity-50 text-nowrap">до 12.09.2020</small>
+                              </div>
+                            </div>
+                          </a>
+                          <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                            <div class="d-flex gap-2 w-100 justify-content-between">
+                              <div>
+                                <h6 class="mb-0 text-list">Россия, город Рудный</h6>
+                                <p class="mb-0 opacity-75">Трактор</p>
+                              </div>
+                              <div>
+                                <small class="opacity-50 text-nowrap">c 11.03.2019</small>
+                                <small class="opacity-50 text-nowrap">до 23.09.2021</small>
+                              </div>
+                            </div>
+                          </a>
+
+                    </div>
+                  </div>
+            </div>
+          </div>
+
+
+        
+      </main>
+    </body>
+</html>

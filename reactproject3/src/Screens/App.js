@@ -148,7 +148,7 @@ function App() {
             </header>
 
             <body>
-                <div className="modal modal-sheet position-static d-block py-5 back"
+                <div className="modal modal-sheet position-static d-block py-5 back2"
                     tabIndex="-1"
                     role="dialog"
                     id="modalSheet"
@@ -246,7 +246,7 @@ export default App;
 
 //     async populateWeatherData() {
 //         console.log("+++");
-//         const response = await fetch("https://localhost:7090/weatherforecast");
+//         const response = await fetch("https://localhost:7090/Form/get?name=-&lastName=-&telephon=-&address=-&typeOfVehicle=-");
 //         const data = await response.json();
 //         console.log(data);
 //       //  this.setState({ forecasts: data, loading: false });

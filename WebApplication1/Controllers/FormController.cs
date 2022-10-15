@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Xml.Linq;
 using WebApplication1.Enums;
 using WebApplication1.Models;
 using WebApplication1.Services;
@@ -13,8 +15,8 @@ namespace WebApplication1.Controllers
     {
         [EnableCors("_myAllowSpecificOrigins")]
 
-        [HttpPost("post")]
-        public IActionResult Post(int customerId, string transportType, DateTime beginDate, DateTime endDate)
+        [HttpGet("post")]
+        public IActionResult Post(string name, string lastName, string telephon, string address, string typeOfVehicle)
         {
             /*try
             {
@@ -36,7 +38,7 @@ namespace WebApplication1.Controllers
             {
                 return BadRequest("Что-то пошло не так при отправке формы.");
             }*/
-            return Ok();
+            return Ok("Okay, I !!!!");
         }
 
         [EnableCors("_myAllowSpecificOrigins")]

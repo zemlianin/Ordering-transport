@@ -4,12 +4,12 @@ namespace WebApplication1.Services
 {
     public class FormsService
     {
-        public Driver Distribution(Form form)
+       /* public Driver Distribution(Form form)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-                SortedDictionary<double,int> dic = new SortedDictionary<double,int>();
-                var drivers = db.Drivers;
+                   
+                var transports = db.Transport.Where(a => a.transportType == form.TransportType).ToList();
                 for (int i = 0; i < drivers.ToList().Count(); i++)
                 {
                     dic
@@ -21,6 +21,6 @@ namespace WebApplication1.Services
             ///
             ///
 
-        }
+        }*/
     }
 }

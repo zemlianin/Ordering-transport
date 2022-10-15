@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
+using WebApplication1.Services;
 
 namespace WebApplication1.Controllers
 {
@@ -11,9 +12,22 @@ namespace WebApplication1.Controllers
     {
         [EnableCors("_myAllowSpecificOrigins")]
         [HttpGet("post")]
-        public IActionResult Post()
+        public IActionResult Post(int Id, string TypePark, string transportType, string Name, string Number, int DrivedId)
         {
-            return Ok();
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                db.Transport.Add(new Transport()
+                {
+                    Id = Id,
+                    TypePark = TypePark,
+                    transportType = transportType,
+                    Name = Name,
+                    Number = Number,
+                    DriverId = DrivedId
+                });
+                db.SaveChanges();
+                return Ok(db.Drivers.Count());
+            }
         }
 
         [EnableCors("_myAllowSpecificOrigins")]

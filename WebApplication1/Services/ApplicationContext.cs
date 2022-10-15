@@ -11,8 +11,10 @@ namespace WebApplication1.Services
         public DbSet<WebApplication1.Models.Duspatcher> Dispatchers { get; set; }
         public DbSet<Form> Forms { get; set; }
         public DbSet<Driver> Drivers { get; set; }
+        public DbSet<Transport> Transport { get; set; }
         public ApplicationContext()
         {
+           // Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

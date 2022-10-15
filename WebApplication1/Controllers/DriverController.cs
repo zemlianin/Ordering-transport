@@ -31,13 +31,19 @@ namespace WebApplication1.Controllers
         [HttpGet("post")]
         public IActionResult Post(int Id, string UserName, string PhoneNumber)
         {
-
-            return Ok(new Driver()
+            using (ApplicationContext db = new ApplicationContext())
             {
-                Id = Id,
-                UserName = UserName,
-                PhoneNumber = PhoneNumber
-            });
+                db.Drivers.Add(new Driver()
+                {
+                    Id = Id,
+                    UserName = UserName,
+                    PhoneNumber = PhoneNumber
+                });
+                db.SaveChanges();
+                return Ok(db.Drivers.Count());
+            }
+
+           
         }
     }
 }

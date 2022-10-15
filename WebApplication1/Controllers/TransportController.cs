@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
                 db.Transport.Add(new Transport()
                 {
                     Id = Id,
-                    TypePark = TypePark,
+                    TypePark = TypePark,   
                     transportType = transportType,
                     Name = Name,
                     Number = Number,
@@ -29,7 +29,19 @@ namespace WebApplication1.Controllers
                 return Ok(db.Drivers.Count());
             }
         }
+        [EnableCors("_myAllowSpecificOrigins")]
+        [HttpGet("realget")]
+        public IActionResult Get2(string type, string date)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                var t = db.Transport.Where(a => a.TypePark == type);
+                return Ok(t);
+            }
+                
+            
 
+        }
         [EnableCors("_myAllowSpecificOrigins")]
         [HttpGet("get")]
         public IActionResult Get(string type, string date)

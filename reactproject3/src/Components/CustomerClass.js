@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { YMaps, Map, Placemark } from 'react-yandex-maps'
-// import { useRef } from 'react'
 import '../Styles/App.css';
 import '../Styles/enter_page.css';
 import '../Styles/style.css';

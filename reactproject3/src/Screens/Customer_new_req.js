@@ -1,12 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { YMaps, Map, Placemark } from 'react-yandex-maps'
-// import { useRef } from 'react'
 import '../Styles/App.css';
 import '../Styles/style.css';
 import '../Styles/customer_new_req_style.css';
-// import CustomerClass from '../CustomerClass';
-import { Link } from "react-router-dom";
-import HeaderNav from '../Components/HeaderMain';
+import HeaderNav from '../Components/HeaderMainCustomer';
 import LogoField from '../Components/LogoField';
 import FooterClass from '../Components/FooterClass';
 
@@ -268,16 +264,7 @@ export default function Customer() {
             </div>
           </div>
         </div>
-        {/* <div
-          className="modal modal-sheet position-static d-block py-5 back"
-          tabIndex="-1"
-          role="dialog"
-          id="modalSheet"
-          style={{ height: window.screen.height }}
-        >
-          DOOOOOOOOOOOOOOOOM!!!
-          <CustomerClass />
-        </div> */}
+        
       </main>
 
       <FooterClass />

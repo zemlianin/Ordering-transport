@@ -10,6 +10,8 @@ namespace WebApplication1.Models
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
         public string LocationJson { get; set; }
+        public string Comment { get; set; }
+
         public int IsActive { get; set; }
         public Location Location
         {

@@ -1,9 +1,13 @@
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../Styles/App.css';
+import '../Styles/customer_new_req_style.css';
+import '../Styles/customer_list_req_style.css';
+import '../Styles/style.css';
 
 export default function RequestInfo(props) {
   return (
     <div className="info-block"
-      style={{ height: window.screen.height }}>
+      style={{ height: window.innerWidth }}>
 
       <div className="modal modal-sheet position-static d-block py-5" tabIndex="-1" role="dialog" id="modalSheet">
         <div className="container form-list">
@@ -22,37 +26,37 @@ export default function RequestInfo(props) {
                       type="text"
                       className="form-control"
                       id="firstName"
-                      placeholder={props.name}
+                      value={props.name}
                       disabled />
                   </div>
 
                   <div className="col-sm-6">
                     <label htmlFor="lastName" className="form-label text">Фамилия</label>
                     <input type="text" className="form-control" id="lastName"
-                      placeholder={props.lastName} disabled />
+                      value={props.lastName} disabled />
                   </div>
 
                   <div className="col-12">
                     <label htmlFor="email" className="form-label text">Телефон </label>
                     <input type="text" className="form-control" id="number"
-                      placeholder={props.telephone} disabled />
+                      value={props.telephone} disabled />
                   </div>
 
                   <div className="col-6">
                     <label htmlFor="date" className="form-label text">Начальная дата</label>
                     <input type="text" className="form-control" id="date_start"
-                      placeholder={props.beginDate} disabled />
+                      value={props.beginDate} disabled />
                   </div>
                   <div className="col-6">
                     <label htmlFor="date" className="form-label text">Конечная дата</label>
                     <input type="text" className="form-control" id="date_finish"
-                      placeholder={props.endDate} disabled />
+                      value={props.endDate} disabled />
                   </div>
 
                   <div className="col-12">
                     <label htmlFor="country" className="form-label text">Адрес </label>
                     <input type="text" className="form-control" id="country"
-                      placeholder={props.address} disabled />
+                      value={props.address} disabled />
                   </div>
 
                   <hr className="my-4" />
@@ -60,21 +64,29 @@ export default function RequestInfo(props) {
                   <div className="col-12">
                     <label htmlFor="car" className="form-label text">Вид машины</label>
                     <input type="text" className="form-control" id="car"
-                      placeholder={props.typeOfVehicle} disabled />
+                      value={props.typeOfVehicle} disabled />
                   </div>
 
                   <hr className="my-4" />
 
                   <div className="col-12">
+                    <label htmlFor="comment" className="form-label text">Комментарий</label>
+                    <input type="text" className="form-control" id="comment"
+                      value={props.comment} disabled />
+                  </div>
+                  
+                  <hr className="my-4" />
+
+                  <div className="col-12">
                     <label htmlFor="priority" className="form-label text">Уровень приоритета</label>
                     <input type="text" className="form-control" id="priority"
-                      placeholder={props.priority} disabled />
+                      value={props.priority} disabled />
                   </div>
 
                 </div>
 
                 <button class="w-100 btn btn-warning btn-lg text-p"
-                  type="submit" style={{backgroundColor: "#f54c4c"}}>УДАЛИТЬ ЗАЯВКУ</button>
+                  type="submit" style={{ backgroundColor: "#f54c4c" }}>УДАЛИТЬ ЗАЯВКУ</button>
               </form>
             </div>
           </div>

@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { YMaps, Map, Placemark } from 'react-yandex-maps'
-// import { useRef } from 'react'
 import '../Styles/App.css';
 import '../Styles/style.css';
-import '../Styles/customer_new_req_style.css';
-import { Link } from "react-router-dom";
 
 
 export default class LogoField extends Component {

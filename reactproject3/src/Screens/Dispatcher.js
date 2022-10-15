@@ -5,7 +5,7 @@ import '../Styles/App.css';
 import '../Styles/customer_new_req_style.css';
 import '../Styles/customer_list_req_style.css';
 import '../Styles/style.css';
-import HeaderNav from '../Components/HeaderMain';
+import HeaderNav from '../Components/HeaderMainCustomer';
 import LogoField from '../Components/LogoField';
 import RequestInfo from '../Components/RequestInfo';
 import RequestForm from '../Components/RequestForm';

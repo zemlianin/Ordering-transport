@@ -13,11 +13,11 @@ namespace WebApplication1.Services
             {
                 db.Database.EnsureDeleted();
                 db.Database.EnsureCreated();
-                var Customer1 = new Customer() { Id = 1, UserName = "Menadger Ivan", PhoneNumber = "89155762345" };
-                var Customer2 = new Customer() { Id = 2, UserName = "Menadger Max", PhoneNumber = "89155999999" };
-                var Customer3 = new Customer() { Id = 3, UserName = "Menadger Anya", PhoneNumber = "89155898945" };
-                var Customer4 = new Customer() { Id = 4, UserName = "Menadger John", PhoneNumber = "89150987345" };
-                var Customer5 = new Customer() { Id = 5, UserName = "Menadger Alex", PhoneNumber = "89155760987" };
+                var Customer1 = new Customer() { Id = 1, UserName = "Ivan", PhoneNumber = "89155762345" };
+                var Customer2 = new Customer() { Id = 2, UserName = "Max", PhoneNumber = "89155999999" };
+                var Customer3 = new Customer() { Id = 3, UserName = "Anya", PhoneNumber = "89155898945" };
+                var Customer4 = new Customer() { Id = 4, UserName = "John", PhoneNumber = "89150987345" };
+                var Customer5 = new Customer() { Id = 5, UserName = "Alex", PhoneNumber = "89155760987" };
                 db.Customers.Add(Customer1);
                 db.Customers.Add(Customer2);
                 db.Customers.Add(Customer3);
@@ -111,8 +111,9 @@ namespace WebApplication1.Services
                     Location = new Location() { X = 1, Y = 2 },
                     BeginDate = "1.1.2020",
                     EndDate = "2.1.2020",
-                    IsActive = 0
-                    
+                    IsActive = 0,
+                    Comment = ""
+
                 };
                 var Form2 = new Form()
                 {
@@ -122,7 +123,8 @@ namespace WebApplication1.Services
                     Location = new Location() { X = 2, Y = 4 },
                     BeginDate = "4.1.2020",
                     EndDate = "5.1.2020",
-                    IsActive = 1
+                    IsActive = 1,
+                    Comment = ""
                 };
                 var Form3 = new Form()
                 {
@@ -132,7 +134,8 @@ namespace WebApplication1.Services
                     Location = new Location() { X = 5, Y = 6 },
                     BeginDate = "8.1.2020",
                     EndDate = "9.1.2020",
-                    IsActive = 2
+                    IsActive = 2,
+                    Comment = ""
                 };
                 var Form4 = new Form()
                 {
@@ -142,8 +145,9 @@ namespace WebApplication1.Services
                     Location = new Location() { X = 12, Y = 34 },
                     BeginDate = "10.1.2020",
                     EndDate = "11.1.2020",
-                    IsActive = 0
-                };
+                    IsActive = 0,
+                    Comment = ""
+            };
                 var Form5 = new Form()
                 {
                     Id = 5,
@@ -152,7 +156,8 @@ namespace WebApplication1.Services
                     Location = new Location() { X = 1, Y = 2 },
                     BeginDate = "7.1.2020",
                     EndDate = "8.1.2020",
-                    IsActive = 1
+                    IsActive = 1,
+                    Comment = ""
                 };
                 db.Forms.Add(Form1);
                 db.Forms.Add(Form2);

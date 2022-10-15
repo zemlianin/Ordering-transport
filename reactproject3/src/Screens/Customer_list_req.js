@@ -1,18 +1,16 @@
-// import { YMaps, Map, Placemark } from 'react-yandex-maps'
-// import { useRef } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/App.css';
+import '../Styles/style.css';
 import '../Styles/customer_new_req_style.css';
 import '../Styles/customer_list_req_style.css';
-import '../Styles/style.css';
-import HeaderNav from '../Components/HeaderMain';
+import HeaderNav from '../Components/HeaderMainCustomer';
 import LogoField from '../Components/LogoField';
 import RequestInfo from '../Components/RequestInfo';
 import RequestForm from '../Components/RequestForm';
 import FooterClass from '../Components/FooterClass';
 import React from 'react';
 
-var login = "";
+var login = "Anya";
 
 var obj = [
   {
@@ -24,6 +22,7 @@ var obj = [
     address: "Россия, Архангельская область",
     typeOfVehicle: "Погрузчик",
     priority: "Стандартный",
+    comment: "comment1",
   },
   {
     name: "Женя",
@@ -34,6 +33,7 @@ var obj = [
     address: "Россия, Архангельская область2",
     typeOfVehicle: "Погрузчик",
     priority: "Стандартный",
+    comment: "comment2",
   },
   {
     name: "Саня",
@@ -44,6 +44,7 @@ var obj = [
     address: "Россия, Архангельская область3",
     typeOfVehicle: "Погрузчик",
     priority: "Стандартный",
+    comment: "comment3",
   }
 ]
 
@@ -55,12 +56,16 @@ var currentObj = {
   endDate: "02.01.2000",
   address: "Default, Default",
   typeOfVehicle: "Default",
-  priority: "Default",
+  priority: "DefaultPriority",
+  comment: "DefaultComment",
 }
 
 function GetListOfRequestsDB() {
-  console.log("BD start");
-
+  console.log("GetListOfRequestsDB");
+  const response = fetch("https://localhost:7090/Customer/get?userName=" + login);
+  console.log(response);
+  // const data = response.json();
+  // console.log(data);
   
 }
 
@@ -149,7 +154,7 @@ export default function CustomerList() {
 
 
               <div className="list-group w-auto bot-block">
-                {}
+                {GetListOfRequestsDB()}
                 {obj.map((item) =>
                   <RequestForm
                     name={item.name}
@@ -159,6 +164,8 @@ export default function CustomerList() {
                     typeOfVehicle={item.typeOfVehicle}
                     beginDate={item.beginDate}
                     endDate={item.endDate}
+                    priority={item.priority}
+                    comment={item.comment}
                     fillCurrent={(item) => SetCurrent(item)}
                     openInfo={() => setInfoOpened(true)}
                   />
@@ -179,6 +186,7 @@ export default function CustomerList() {
             address={currentObj.address}
             typeOfVehicle={currentObj.typeOfVehicle}
             priority={currentObj.priority}
+            comment={currentObj.comment}
             onClickHand={() => setInfoOpened(false)}
           /> : null
         }

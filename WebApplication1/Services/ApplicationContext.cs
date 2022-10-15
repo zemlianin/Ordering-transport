@@ -23,6 +23,8 @@ namespace WebApplication1.Services
                 .Ignore(e => e.Location);
             modelBuilder.Entity<Driver>()
                 .Ignore(e => e.CurrentLocation);
+            modelBuilder.Entity<Transport>()
+                .Ignore(e => e.DateSpaneList);
 
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

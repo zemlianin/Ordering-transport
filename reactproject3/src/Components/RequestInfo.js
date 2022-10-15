@@ -65,8 +65,8 @@ export default function RequestInfo(props) {
                   <hr className="my-4" />
 
                   <div className="col-12">
-                    <label htmlFor="car" className="form-label text">Уровень приоритета</label>
-                    <input type="text" className="form-control" id="car"
+                    <label htmlFor="priority" className="form-label text">Уровень приоритета</label>
+                    <input type="text" className="form-control" id="priority"
                       placeholder={props.priority} disabled />
                   </div>
 

@@ -256,7 +256,7 @@ export default function Customer() {
                     <button
                       className="w-100 btn btn-warning btn-lg text-p"
                       type="submit"
-                      onClick={onSubmit}
+                      onClick={() => onSubmit()}
                     >ОТПРАВИТЬ ЗАЯВКУ
                     </button>
                   </div>
@@ -266,18 +266,18 @@ export default function Customer() {
           </div>
         </div>
         {/* <div
-                        className="modal modal-sheet position-static d-block py-5 back"
-                        tabIndex="-1"
-                        role="dialog"
-                        id="modalSheet"
-                        style={{ height: window.screen.height }}
-                    >
-                        DOOOOOOOOOOOOOOOOM!!!
-                        <CustomerClass />
-                    </div> */}
+          className="modal modal-sheet position-static d-block py-5 back"
+          tabIndex="-1"
+          role="dialog"
+          id="modalSheet"
+          style={{ height: window.screen.height }}
+        >
+          DOOOOOOOOOOOOOOOOM!!!
+          <CustomerClass />
+        </div> */}
       </main>
 
-      <FooterClass/>
+      <FooterClass />
     </body>
   );
 }

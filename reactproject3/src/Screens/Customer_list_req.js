@@ -12,19 +12,49 @@ import FooterClass from '../Components/FooterClass';
 import React from 'react';
 
 
-var obj = {
-  name: "Артём",
-  lastName: "Федоров",
-  telephone: "+7(977) 777 77 77",
-  beginDate: "12.06.2022",
-  endDate: "12.06.2023",
-  address: "Россия, Архангельская область",
-  typeOfVehicle: "Погрузчик",
-  priority: "Стандартный",
+var obj = [
+  {
+    name: "Артём",
+    lastName: "Федоров",
+    telephone: "+7(977) 777 77 77",
+    beginDate: "12.06.2022",
+    endDate: "12.06.2023",
+    address: "Россия, Архангельская область",
+    typeOfVehicle: "Погрузчик",
+    priority: "Стандартный",
+  },
+]
+
+function GetRequestInfoDB(props) {
+  console.log("BD start");
+  // fetch();
+
+  if (props.infoOpened) {
+    return (
+      <div>
+        <RequestInfo
+          name={obj[0].name}
+          lastName={obj[0].lastName}
+          telephone={obj[0].telephone}
+          beginDate={obj[0].beginDate}
+          endDate={obj[0].endDate}
+          address={obj[0].address}
+          typeOfVehicle={obj[0].typeOfVehicle}
+          priority={obj[0].priority}
+          onClickHand={() => props.setInfoOpened(false)}
+        />
+      </div>
+    )
+  } else {
+    return null;
+  }
 }
 
-function GetRequestInfoDB() {
+function GetListOfRequests(){
+  console.log("BD start");
+  // fetch();
 
+  
 }
 
 async function onSubmit(event) {
@@ -101,19 +131,20 @@ export default function CustomerList() {
                 </form>
               </div>
 
-              <div className="list-group w-auto bot-block">
 
+              <div className="list-group w-auto bot-block">
+                
                 <div className="list-group-item list-group-item-action d-flex gap-3 py-3" onClick={() => setInfoOpened(true)}>
-                    <div className="d-flex gap-2 w-100 justify-content-between">
-                      <div>
-                        <h6 className="mb-0 text-list">Россия, Чебоксарская область</h6>
-                        <p className="mb-0 opacity-75">Погрузчик</p>
-                      </div>
-                      <div>
-                        <small className="opacity-50 text-nowrap">c 12.06.2022</small>
-                        <small className="opacity-50 text-nowrap">до 12.06.2023</small>
-                      </div>
+                  <div className="d-flex gap-2 w-100 justify-content-between">
+                    <div>
+                      <h6 className="mb-0 text-list">Россия, Чебоксарская область</h6>
+                      <p className="mb-0 opacity-75">Погрузчик</p>
                     </div>
+                    <div>
+                      <small className="opacity-50 text-nowrap">c 12.06.2022</small>
+                      <small className="opacity-50 text-nowrap">до 12.06.2023</small>
+                    </div>
+                  </div>
                 </div>
 
                 <a href="#" className="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
@@ -146,22 +177,7 @@ export default function CustomerList() {
           </div>
         </div>
 
-
-        {infoOpened ? <div>
-          {GetRequestInfoDB()}
-          <RequestInfo
-            name={obj.name}
-            lastName={obj.lastName}
-            telephone={obj.telephone}
-            beginDate={obj.beginDate}
-            endDate={obj.endDate}
-            address={obj.address}
-            typeOfVehicle={obj.typeOfVehicle}
-            priority={obj.priority}
-            onClickHand={() => setInfoOpened(false)}
-          />
-        </div> : null}
-
+        {GetRequestInfoDB({infoOpened: infoOpened, setInfoOpened: setInfoOpened})}
 
       </main>
 

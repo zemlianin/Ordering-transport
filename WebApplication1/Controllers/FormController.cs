@@ -13,7 +13,7 @@ namespace WebApplication1.Controllers
         [HttpPost("post")]
         public IActionResult Post(int phoneNumber, string userName, string transportType, DateTime date)
         {
-            
+            return Ok();
         }
     }
 }

@@ -12,8 +12,7 @@ root.render(
       <Route path="/" element={<App />} />
       <Route path="customer" element={<Customer />} />
     </Routes>
-  </BrowserRouter>,
-  document.getElementById("root")
+  </BrowserRouter>
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>

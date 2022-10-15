@@ -1,5 +1,5 @@
 import '../Styles/App.css';
-import { YMaps, Map, Placemark } from 'react-yandex-maps'
+// import { YMaps, Map, Placemark } from 'react-yandex-maps'
 // import { useRef } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/enter_page.css';
@@ -139,7 +139,7 @@ function App() {
                         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                             <a href="/" className="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
                                 <span className="bi me-2">
-                                    <img src="https://polyus.com/img/logo_dark_ru.svg" width="200" height="40" alt="beautiful background" />
+                                    <img src="https://polyus.com/img/logo_dark_ru.svg" width="200" height="40" alt="company pic" />
                                 </span>
                             </a>
                         </div>
@@ -148,9 +148,14 @@ function App() {
             </header>
 
             <body>
-                <div className="modal modal-sheet position-static d-block py-5 back" tabIndex="-1" role="dialog" id="modalSheet">
+                <div className="modal modal-sheet position-static d-block py-5 back"
+                    tabIndex="-1"
+                    role="dialog"
+                    id="modalSheet"
+                    style={{ height: window.screen.height }}
+                >
                     <div className="modal-dialog" role="document">
-                        <div className="modal-content rounded-4 shadow">
+                        <div className="modal-content rounded-4 shadow list-margin">
                             <div className="modal-header border-bottom-0">
                                 <h1 className="modal-title fs-5 text">ВХОД</h1>
                             </div>
@@ -162,13 +167,21 @@ function App() {
                                     onClick="document.location='main_customer.html'"
                                     type="button"
                                     className="btn btn-lg btn-outline-light w-100 mx-0 mb-2 text-p "
-                                ><Link to="/customer" style={{ textDecoration: 'none' }}><p className="text-p " >ЗАКАЗЧИК</p></Link></button>
+                                ><Link
+                                    to="/customer"
+                                    style={{ textDecoration: 'none' }}>
+                                        <p className="text-p">ЗАКАЗЧИК</p>
+                                    </Link></button>
                                 <button
                                     onClick="document.location='main_dispatcher.html'"
                                     type="button"
                                     className="btn btn-lg btn-warning w-100 mx-0 text-p"
                                     data-bs-dismiss="modal"
-                                ><Link to="/dispatcher" style={{ textDecoration: 'none' }}><p className="text-p " >ДИСПЕТЧЕР</p></Link></button>
+                                ><Link
+                                    to="/dispatcher"
+                                    style={{ textDecoration: 'none' }}>
+                                        <p className="text-p " >ДИСПЕТЧЕР</p>
+                                    </Link></button>
                             </div>
                         </div>
                     </div>

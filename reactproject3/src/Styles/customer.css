@@ -1,0 +1,58 @@
+.back {
+    background-image: url(https://polyus.com/_html/img/main/dopskydark.jpg);
+    -moz-background-size: 100%; 
+    -webkit-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%;
+    /* height: 760px; */
+}
+
+.hov0:hover .bl_yel0{
+    border: 1px solid #FFB635;
+}
+
+.bl_yel0 {
+    border: none;
+    position: absolute;
+    top: 50px;
+    margin-left: 10px;
+    width: 100px;
+}
+
+.hov1:hover .bl_yel1{
+    border: 1px solid #FFB635;
+}
+
+.bl_yel1 {
+    border: none;
+    position: absolute;
+    top: 50px;
+    margin-left: 10px;
+    width: 110px;
+}
+
+.hov2:hover .bl_yel2{
+    border: 1px solid #FFB635;
+}
+
+.bl_yel2 {
+    border: none;
+    position: absolute;
+    top: 50px;
+    margin-left: 10px;
+    width: 40px;
+}
+
+.list-block{
+    margin-top: 16px;
+}
+
+.list {
+    margin: 15%;
+}
+
+.form-list{
+    position: absolute;
+    margin-left: 35%;
+    margin-right: 35%;
+}

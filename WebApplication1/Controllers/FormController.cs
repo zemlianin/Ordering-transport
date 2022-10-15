@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Enums;
+using WebApplication1.Models;
+using WebApplication1.Services;
 
 namespace WebApplication1.Controllers
 {
@@ -11,9 +14,65 @@ namespace WebApplication1.Controllers
         [EnableCors("_myAllowSpecificOrigins")]
 
         [HttpPost("post")]
-        public IActionResult Post(int phoneNumber, string userName, string transportType, DateTime date)
+        public IActionResult Post(int customerId, string transportType, DateTime beginDate, DateTime endDate)
         {
-            return Ok();
+            try
+            {
+                if (beginDate > endDate)
+                {
+                    return BadRequest("Время начала меньше либо равно времени конца.");
+                }
+                using var context = new ApplicationContext();
+                context.Forms.Add(new()
+                {
+                    CustomerId = customerId,
+                    TransportType = (TransportTypes)Enum.Parse(typeof(TransportTypes), transportType, true),
+                    BeginDate = beginDate,
+                    EndDate = endDate,
+                });
+                context.SaveChanges();
+                return Ok();
+            } catch
+            {
+                return BadRequest("Что-то пошло не так при отправке формы.");
+            }
+        }
+
+        [EnableCors("_myAllowSpecificOrigins")]
+
+        [HttpGet("get")]
+        public IActionResult Get(int formId)
+        {
+            try
+            {
+                using var context = new ApplicationContext();
+                var answer = context.Forms.First(form => form.Id == formId);
+                context.SaveChanges();
+                return Ok(answer);
+            } catch
+            {
+                return BadRequest("Что-то пошло не так при получении формы.");
+            }
+        }
+
+
+        [EnableCors("_myAllowSpecificOrigins")]
+
+        [HttpDelete("delete")]
+        public IActionResult Delete(int formId)
+        {
+            try
+            {
+                using var context = new ApplicationContext();
+                var form = context.Forms.First(item => item.Id == formId);
+                var answer = context.Forms.Remove(form);
+                context.SaveChanges();
+                return Ok(answer);
+            }
+            catch
+            {
+                return BadRequest("Что-то пошло не так при получении формы.");
+            }
         }
     }
 }

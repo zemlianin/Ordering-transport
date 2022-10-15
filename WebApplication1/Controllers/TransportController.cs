@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
@@ -17,9 +18,9 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost("get")]
-        public IActionResult Post(int phoneNumber, string userName, string transportType, DateTime date)
+        public Transport[] Get()
         {
-            return Ok();
+            return new Transport[] {new Transport() { DriverId = 1, Id = 1, Type = "tractor"}, new Transport() { DriverId = 2, Id = 2, Type = "tractor" } };
         }
     }
 }

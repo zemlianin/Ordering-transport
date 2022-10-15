@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
     {
         [EnableCors("_myAllowSpecificOrigins")]
 
-        [HttpGet("post")]
+        [HttpPost("post")]
         public IActionResult Post(
             string name,
             string lastName,

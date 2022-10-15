@@ -22,8 +22,8 @@ namespace WebApplication1
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                                   policy =>
                                   {
-                                      policy.WithOrigins("https://localhost:3000").AllowAnyHeader()
-                                .AllowAnyMethod();
+                                      policy/*.WithOrigins("https://localhost:3000")*/.AllowAnyHeader()
+                                .AllowAnyMethod().AllowAnyOrigin();
                                   });
             });
 

@@ -12,7 +12,8 @@ namespace WebApplication1.Controllers
     {
         [EnableCors("_myAllowSpecificOrigins")]
         [HttpGet("post")]
-        public IActionResult Post(int Id, string TypePark, string transportType, string Name, string Number, int DrivedId)
+        public IActionResult Post(int Id, string TypePark, string transportType, string Name, string Number,
+            int DriverId/*, string UserName, string PhoneNumber*/)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
@@ -23,7 +24,7 @@ namespace WebApplication1.Controllers
                     transportType = transportType,
                     Name = Name,
                     Number = Number,
-                    DriverId = DrivedId
+                    Driver = db.Drivers.First(a => a.Id == DriverId)
                 });
                 db.SaveChanges();
                 return Ok(db.Drivers.Count());

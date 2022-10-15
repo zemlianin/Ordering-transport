@@ -16,31 +16,35 @@ namespace WebApplication1.Controllers
         [EnableCors("_myAllowSpecificOrigins")]
 
         [HttpGet("post")]
-        public IActionResult Post(int customerId, string transportType, DateTime beginDate, DateTime endDate)
+        public IActionResult Post(string name, string lastName, string telephon, double x, double y, DateTime beginDate, DateTime endDate, string typeOfVehicle, int priority)
         {
-            /*try
+            try
             {
                 if (beginDate > endDate)
                 {
                     return BadRequest("Время начала меньше либо равно времени конца.");
                 }
                 using var context = new ApplicationContext();
+                int customerId = context.Customers.First(rec => rec.PhoneNumber == telephon && rec.UserName == $"{lastName} {name}").Id;
                 context.Forms.Add(new()
                 {
                     CustomeId = customerId,
-                    TransportType = transportType,
+                    TransportType = typeOfVehicle,
                     BeginDate = beginDate,
                     EndDate = endDate,
                     Location = new Location()
-                }) ;
+                    {
+                        X = x,
+                        Y = y,
+                    },
+                });
                 context.SaveChanges();
                 return Ok();
             }
             catch
             {
                 return BadRequest("Что-то пошло не так при отправке формы.");
-            }*/
-            return Ok();
+            }
         }
 
         [EnableCors("_myAllowSpecificOrigins")]
@@ -48,10 +52,16 @@ namespace WebApplication1.Controllers
         [HttpGet("get")]
         public IActionResult Get(int formId)
         {
-            return Ok(1);
+            using var context = new ApplicationContext();
+            var form = context.Forms.FirstOrDefault(rec => rec.Id == formId);
+            if (form == null)
+            {
+                return NotFound($"Не найдена заявка под идентификатором {formId}.");
+            }
+            return Ok(form);
         }
 
-
+        
         [EnableCors("_myAllowSpecificOrigins")]
 
         [HttpDelete("delete")]

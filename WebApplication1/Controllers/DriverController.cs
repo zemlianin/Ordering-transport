@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
+using WebApplication1.Services;
 
 namespace WebApplication1.Controllers
 {
@@ -13,11 +14,29 @@ namespace WebApplication1.Controllers
         [EnableCors("_myAllowSpecificOrigins")]
 
         [HttpGet("get")]
-        public IActionResult Get()
+        public IActionResult Get(int id)
         {
-            return Ok(new Form()
-            {
 
+
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                var t = db.Drivers.Where(p => p.Id == id).ToList();
+                return Ok(t);
+            }
+
+        }
+
+        [EnableCors("_myAllowSpecificOrigins")]
+
+        [HttpGet("post")]
+        public IActionResult Post(int Id, string UserName, string PhoneNumber)
+        {
+
+            return Ok(new Driver()
+            {
+                Id = Id,
+                UserName = UserName,
+                PhoneNumber = PhoneNumber
             });
         }
     }

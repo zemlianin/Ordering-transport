@@ -13,7 +13,6 @@ namespace WebApplication1.Services
         public DbSet<Driver> Drivers { get; set; }
         public ApplicationContext()
         {
-            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

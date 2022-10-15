@@ -14,11 +14,12 @@ namespace WebApplication1.Controllers
         [EnableCors("_myAllowSpecificOrigins")]
 
         [HttpGet("get")]
-        public IActionResult Get(int formId)
+        public IActionResult Get(int CustomerId)
         {
             using (ApplicationContext db = new ApplicationContext())
             {
-               return  Ok(db.Customers.ToArray());
+                var t = db.Customers.Where(p => p.Id == CustomerId).ToList()[0].Forms;
+                return Ok(t);
             }
         }
 

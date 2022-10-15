@@ -16,7 +16,7 @@ namespace WebApplication1.Controllers
         [EnableCors("_myAllowSpecificOrigins")]
 
         [HttpGet("post")]
-        public IActionResult Post(string name, string lastName, string telephon, string address, string typeOfVehicle)
+        public IActionResult Post(int customerId, string transportType, DateTime beginDate, DateTime endDate)
         {
             /*try
             {
@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
             {
                 return BadRequest("Что-то пошло не так при отправке формы.");
             }*/
-            return Ok("Okay, I !!!!");
+            return Ok();
         }
 
         [EnableCors("_myAllowSpecificOrigins")]

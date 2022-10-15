@@ -131,6 +131,10 @@ import { Link } from "react-router-dom";
 
 
 function App() {
+    console.log("+++");
+         const response = fetch("https://localhost:7090/Transport/post");
+    //const data =  response.json();
+    //console.log(resp);
     return (
         <div>
             <header className="p-3 border">

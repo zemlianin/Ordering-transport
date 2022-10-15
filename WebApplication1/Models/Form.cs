@@ -6,6 +6,7 @@ namespace WebApplication1.Models
     {
         public int Id { get; set; }
         public int CustomeId { get; set; }
+        public Customer Customer { get; set; }
         public Location Location { get; set; }
         public string TransportType { get; set; }
         

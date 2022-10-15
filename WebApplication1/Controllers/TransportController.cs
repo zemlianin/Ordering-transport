@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     public class TransportController : Controller
     {
         [EnableCors("_myAllowSpecificOrigins")]
-        [HttpPost("post")]
+        [HttpPost("post2")]
         public IActionResult Post()
         {
             return Ok();
@@ -18,9 +18,10 @@ namespace WebApplication1.Controllers
 
         [EnableCors("_myAllowSpecificOrigins")]
         [HttpGet("get")]
-        public Transport[] Get()
+        public IActionResult Get(string type, string date)
         {
-            return new Transport[] {new Transport() { DriverId = 1, Id = 1, transportType = "tractor"}, new Transport() { DriverId = 2, Id = 2, transportType = "tractor" } };
+            return Ok();
+          //  return new Transport[] {new Transport() { DriverId = 1, Id = 1, transportType = "tractor"}, new Transport() { DriverId = 2, Id = 2, transportType = "tractor" } };
         }
     }
 }

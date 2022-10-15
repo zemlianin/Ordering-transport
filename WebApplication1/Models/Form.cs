@@ -7,7 +7,7 @@ namespace WebApplication1.Models
     public class Form
     {
         public int Id { get; set; }
-        public int CustomeId { get; set; }
+        public int CustomerId { get; set; }
         public Customer Customer { get; set; }
         public string LocationJson { get; set; }
         public Location Location

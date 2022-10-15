@@ -33,26 +33,28 @@ namespace WebApplication1.Controllers
                 {
                     return BadRequest("Время начала меньше либо равно времени конца.");
                 }*/
-                using var context = new ApplicationContext();
-                var customer = context.Customers.First(rec => rec.PhoneNumber == telephon && rec.UserName == $"{lastName} {name}");
-                if (customer == null)
+            using var context = new ApplicationContext();
+            var customer = context.Customers.First(rec => rec.PhoneNumber == telephon && rec.UserName == $"{lastName} {name}");
+                
+            if (customer == null)
+            {
+                return NotFound($"Не найден пользователь: {lastName} {name}({telephon}).");
+            }
+            var form = new Form()
+            {
+                CustomerId = customer.Id,
+                TransportType = typeOfVehicle,
+                BeginDate = beginDate,
+                EndDate = endDate,
+                Location = new Location()
                 {
-                    return NotFound($"Не найден пользователь: {lastName} {name}({telephon}).");
-                }
-                context.Forms.Add(new()
-                {
-                    CustomeId = customer.Id,
-                    TransportType = typeOfVehicle,
-                    BeginDate = beginDate,
-                    EndDate = endDate,
-                    Location = new Location()
-                    {
-                        X = x,
-                        Y = y,
-                    },
-                });
-                context.SaveChanges();
-                return Ok();
+                    X = x,
+                    Y = y,
+                },
+            };
+            context.Forms.Add(form);
+            context.SaveChanges();
+            return Ok();
           /*  }
             catch
             {

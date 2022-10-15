@@ -29,6 +29,7 @@ namespace WebApplication1.Controllers
             using (ApplicationContext db = new ApplicationContext())
             {
                 db.Customers.Add(cust);
+                db.SaveChanges();
                 return Ok(db.Customers.Count());
             }
             

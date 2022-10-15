@@ -27,8 +27,8 @@ namespace WebApplication1.Controllers
             string typeOfVehicle,
             int priority)
         {
-            try
-            {
+           /* try
+            {*/
                 if (beginDate > endDate)
                 {
                     return BadRequest("Время начала меньше либо равно времени конца.");
@@ -53,11 +53,11 @@ namespace WebApplication1.Controllers
                 });
                 context.SaveChanges();
                 return Ok();
-            }
+          /*  }
             catch
             {
                 return BadRequest("Что-то пошло не так при отправке формы.");
-            }
+            }*/
         }
 
         [EnableCors("_myAllowSpecificOrigins")]

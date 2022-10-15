@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Data.SqlTypes;
+using System.Text.Json;
 using WebApplication1.Enums;
 
 namespace WebApplication1.Models
@@ -22,7 +23,7 @@ namespace WebApplication1.Models
         }
         public string TransportType { get; set; }
 
-        public DateTime BeginDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public SqlDateTime BeginDate { get; set; }
+        public SqlDateTime EndDate { get; set; }
     }
 }

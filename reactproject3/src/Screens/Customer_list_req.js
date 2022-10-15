@@ -9,24 +9,21 @@ import HeaderNav from '../Components/HeaderMain';
 import LogoField from '../Components/LogoField';
 import RequestInfo from '../Components/RequestInfo';
 import FooterClass from '../Components/FooterClass';
+import React from 'react';
 
 
 var obj = {
-  name: "Artem",
-  lastName: "Fedorov",
+  name: "Артём",
+  lastName: "Федоров",
   telephone: "+7(977) 777 77 77",
-  beginDate: "01.01.2007",
-  endDate: "07.01.2007",
-  address: "pokra 11",
-  typeOfVehicle: "Vagon",
-  priority: "High",
+  beginDate: "12.06.2022",
+  endDate: "12.06.2023",
+  address: "Россия, Архангельская область",
+  typeOfVehicle: "Погрузчик",
+  priority: "Стандартный",
 }
 
 function GetRequestInfoDB() {
-
-}
-
-function ShowInfo() {
 
 }
 
@@ -44,6 +41,8 @@ async function onSubmit(event) {
 }
 
 export default function CustomerList() {
+  const [infoOpened, setInfoOpened] = React.useState(false);
+
   return (
     <body>
       <HeaderNav />
@@ -104,18 +103,18 @@ export default function CustomerList() {
 
               <div className="list-group w-auto bot-block">
 
-                <a href="#" className="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                  <div className="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                      <h6 className="mb-0 text-list">Россия, Чебоксарская область</h6>
-                      <p className="mb-0 opacity-75">Погрузчик</p>
+                <div className="list-group-item list-group-item-action d-flex gap-3 py-3" onClick={() => setInfoOpened(true)}>
+                    <div className="d-flex gap-2 w-100 justify-content-between">
+                      <div>
+                        <h6 className="mb-0 text-list">Россия, Чебоксарская область</h6>
+                        <p className="mb-0 opacity-75">Погрузчик</p>
+                      </div>
+                      <div>
+                        <small className="opacity-50 text-nowrap">c 12.06.2022</small>
+                        <small className="opacity-50 text-nowrap">до 12.06.2023</small>
+                      </div>
                     </div>
-                    <div>
-                      <small className="opacity-50 text-nowrap">c 12.06.2022</small>
-                      <small className="opacity-50 text-nowrap">до 12.06.2023</small>
-                    </div>
-                  </div>
-                </a>
+                </div>
 
                 <a href="#" className="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
                   <div className="d-flex gap-2 w-100 justify-content-between">
@@ -148,7 +147,7 @@ export default function CustomerList() {
         </div>
 
 
-        <div style={{ display: 'none' }}>
+        {infoOpened ? <div>
           {GetRequestInfoDB()}
           <RequestInfo
             name={obj.name}
@@ -159,8 +158,9 @@ export default function CustomerList() {
             address={obj.address}
             typeOfVehicle={obj.typeOfVehicle}
             priority={obj.priority}
+            onClickHand={() => setInfoOpened(false)}
           />
-        </div>
+        </div> : null}
 
 
       </main>

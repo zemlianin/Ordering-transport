@@ -20,6 +20,7 @@ var currentRequest = {
   endDate: "",
   typeOfVehicle: "",
   priotity: "",
+  comment: "",
 }
 
 // var boolCheck = [
@@ -57,6 +58,9 @@ function onChangeBeginDate(event) {
 }
 function onChangeEndDate(event) {
   currentRequest.endDate = event.target.value;
+}
+function onChangeComment(event) {
+  currentRequest.comment = event.target.value;
 }
 function onSelectVehicle(event) {
   currentRequest.typeOfVehicle = event.target.value;
@@ -214,6 +218,21 @@ export default function Customer() {
                       </select>
                       <div className="invalid-feedback">
                         Выберите корректный тип машины.
+                      </div>
+                    </div>
+
+                    <div className="col-12">
+                      <label htmlFor="address" className="form-label text">Комментарий</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="address"
+                        placeholder="Грузоподъёмность выше 2 тонн"
+                        onChange={onChangeComment}
+                        required=""
+                      />
+                      <div className="invalid-feedback">
+                        Введите корректный адрес.
                       </div>
                     </div>
 

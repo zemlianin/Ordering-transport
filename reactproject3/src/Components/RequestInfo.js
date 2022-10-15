@@ -11,7 +11,7 @@ export default function RequestInfo(props) {
             <div className="col-md-7 col-lg-8 list">
               <div className="modal-header border-bottom-0">
                 <h4 className="modal-title fs-5 text text-h4">ЗАЯВКА</h4>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => props.onClickHand()}></button>
               </div>
               <form className="needs-validation" noValidate="">
                 <div className="row g-3">

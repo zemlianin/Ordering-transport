@@ -18,12 +18,18 @@ namespace WebApplication1.Controllers
 
         [EnableCors("_myAllowSpecificOrigins")]
         [HttpGet("get")]
-      /*  public IActionResult Get(string type, string date)
+        public IActionResult Get(string type, string date)
         {
-            List<Transport> tr1 = new List<Transport>() { new Transport {Id = 0, Driver = Dr }, new Transport() { } };
-            List<Transport> tr2 = new List<Transport>() { new Transport { }, new Transport() { } };
-
-            //  return new Transport[] {new Transport() { DriverId = 1, Id = 1, transportType = "tractor"}, new Transport() { DriverId = 2, Id = 2, transportType = "tractor" } };
-        }*/
+            List<Transport> tr1 = new List<Transport>() { new Transport { Id = 0, Driver = new Driver(), Name = "Камаз", 
+                Number = "117A", DriverId = 1, transportType = "Вышка(35м)", TypePark = "Вышка"  },
+                new Transport() {Id = 1, Driver = new Driver(), Name = "Маз",
+                Number = "100Б", DriverId = 2, transportType = "Вышка(25м)", TypePark = "Вышка"   } };
+            List<Transport> tr2 = new List<Transport>() { new Transport { Id = 3, Driver = new Driver(), Name = "Камаз",
+                Number = "117A", DriverId = 1, transportType = "Вышка(35м)", TypePark = "Вышка"  },
+                new Transport() {Id = 4, Driver = new Driver(), Name = "Маз",
+                Number = "100Б", DriverId = 2, transportType = "Вышка(25м)", TypePark = "Вышка"   } };
+            return Ok(new Tuple<List<Transport>, List<Transport>>(tr1, tr2));
+         
+        }
     }
 }

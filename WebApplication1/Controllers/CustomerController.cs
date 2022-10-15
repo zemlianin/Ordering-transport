@@ -16,10 +16,17 @@ namespace WebApplication1.Controllers
         [HttpGet("get")]
         public IActionResult Get(int CustomerId)
         {
-            using (ApplicationContext db = new ApplicationContext())
+            try
             {
-                var t = db.Customers.Where(p => p.Id == CustomerId).ToList()[0].Forms;
-                return Ok(t);
+                using (ApplicationContext db = new ApplicationContext())
+                {
+                    var t = db.Customers.Where(p => p.Id == CustomerId).ToList()[0].Forms;
+                    return Ok(t);
+                }
+            }
+            catch (Exception ex)
+            {
+                return NotFound($"Не найден заказчик с id = {CustomerId}");
             }
         }
 

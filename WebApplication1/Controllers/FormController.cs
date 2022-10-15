@@ -79,21 +79,21 @@ namespace WebApplication1.Controllers
         
         [EnableCors("_myAllowSpecificOrigins")]
 
-        [HttpDelete("delete")]
+        [HttpGet("delete")]
         public IActionResult Delete(int formId)
         {
-            /*try
+            try
             {
                 using var context = new ApplicationContext();
                 var form = context.Forms.First(item => item.Id == formId);
-                var answer = context.Forms.Remove(form);
+                context.Forms.Remove(form);
                 context.SaveChanges();
-                return Ok(answer);
+                return Ok(context.Forms);
             }
             catch
             {
                 return BadRequest("Что-то пошло не так при получении формы.");
-            }*/
+            }
             return Ok();
         }
     }

@@ -1,9 +1,10 @@
-import './App.css';
+import '../Styles/App.css';
 import { YMaps, Map, Placemark } from 'react-yandex-maps'
 // import { useRef } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './enter_page.css';
-import './style.css';
+import '../Styles/enter_page.css';
+import '../Styles/style.css';
+import { Link } from "react-router-dom";
 
 // Группы объектов
 // var groups = [
@@ -141,13 +142,13 @@ function App() {
                                     onClick="document.location='main_customer.html'"
                                     type="button"
                                     className="btn btn-lg btn-outline-light w-100 mx-0 mb-2 text-p "
-                                >ЗАКАЗЧИК</button>
+                                ><Link to="/customer" style={{ textDecoration: 'none' }}><p className="text-p " >ЗАКАЗЧИК</p></Link></button>
                                 <button
                                     onClick="document.location='main_dispatcher.html'"
                                     type="button"
                                     className="btn btn-lg btn-warning w-100 mx-0 text-p"
                                     data-bs-dismiss="modal"
-                                >ДИСПЕТЧЕР</button>
+                                ><Link to="/dispatcher" style={{ textDecoration: 'none' }}><p className="text-p " >ДИСПЕТЧЕР</p></Link></button>
                             </div>
                         </div>
                     </div>

@@ -1,48 +1,48 @@
 @font-face {
     font-family: "Stem-Bold"; 
-    src: url("../public/font-family/Stem-Bold.ttf") format("truetype"); 
+    src: url("../../public/font-family/Stem-Bold.ttf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 } 
 
 @font-face {
     font-family: "Stem-ExtraLight"; 
-    src: url("../public/font-family/Stem-ExtraLight.ttf") format("truetype"); 
+    src: url("../../public/font-family/Stem-ExtraLight.ttf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 } 
 
 @font-face {
     font-family: "Stem-Light"; 
-    src: url("../public/font-family/Stem-Light.ttf") format("truetype"); 
+    src: url("../../public/font-family/Stem-Light.ttf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 } 
 
 @font-face {
     font-family: "Stem-Medium"; 
-    src: url("../public/font-family/Stem-Medium.ttf") format("truetype"); 
+    src: url("../../public/font-family/Stem-Medium.ttf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 } 
 
 @font-face {
     font-family: "Stem-Regular"; 
-    src: url("../public/font-family/Stem-Regular.ttf") format("truetype"); 
+    src: url("../../public/font-family/Stem-Regular.ttf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 } 
 
 @font-face {
     font-family: "Stem-SemiLight"; 
-    src: url("../public/font-family/Stem-SemiLight.ttf") format("truetype"); 
+    src: url("../../public/font-family/Stem-SemiLight.ttf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 } 
 
 @font-face {
     font-family: "Stem-Thin"; 
-    src: url("../public/font-family/Stem-Thin.ttf") format("truetype"); 
+    src: url("../../public/font-family/Stem-Thin.ttf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
 } 
@@ -55,6 +55,9 @@
     font-family: Stem-Light,Montserrat,sans-serif;
     letter-spacing: 1px;
     font-size: 14px;
+    text-decoration: 'none';
+    color: black;
+    margin-bottom: 0%;
 }
 
 .informationText {

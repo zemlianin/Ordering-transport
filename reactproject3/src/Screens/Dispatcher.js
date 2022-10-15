@@ -10,9 +10,10 @@ import LogoField from '../Components/LogoField';
 import RequestInfo from '../Components/RequestInfo';
 import RequestForm from '../Components/RequestForm';
 import FooterClass from '../Components/FooterClass';
-import React from 'react';
+import { Link } from "react-router-dom";
+import React, { Component } from 'react';
 
-var login = "";
+import RequestInfoEdit from '../Components/RequestInfoEdit';
 
 var obj = [
   {
@@ -58,12 +59,37 @@ var currentObj = {
   priority: "Default",
 }
 
-function GetListOfRequestsDB() {
+function GetRequestInfoDB(props) {
   console.log("BD start");
+  // fetch();
 
-  
+  if (props.infoOpened) {
+    return (
+      <div>
+        <RequestInfoEdit
+          name={props.name}
+          lastName={props.lastName}
+          telephone={props.telephone}
+          beginDate={props.beginDate}
+          endDate={props.endDate}
+          address={props.address}
+          typeOfVehicle={props.typeOfVehicle}
+          priority={props.priority}
+          onClickHand={() => props.setInfoOpened(false)}
+        />
+      </div>
+    )
+  } else {
+    return null;
+  }
 }
 
+function GetListOfRequests() {
+  console.log("BD start");
+  // fetch();
+
+
+}
 
 async function onSubmit(event) {
   // // console.log(event);
@@ -82,7 +108,7 @@ function SetCurrent(item) {
   currentObj = item;
 }
 
-export default function CustomerList() {
+export default function DispatcherList() {
   const [isInfoOpened, setInfoOpened] = React.useState(false);
 
   // React.useEffect(() => {
@@ -91,7 +117,35 @@ export default function CustomerList() {
 
   return (
     <body>
-      <HeaderNav />
+      <div>
+        <header className="py-2 bg-light border-bottom">
+          <div className="container d-flex flex-wrap">
+            <ul className="nav me-auto">
+              <li className="nav-item hov1">
+                <Link
+                  to="/dispatcher"
+                  style={{ textDecoration: 'none' }}>
+                  <p className="link-dark px-2 text-menu text-menu">СПИСОК ЗАЯВОК</p>
+                </Link>
+                <div className="bl_yel1"></div>
+              </li>
+              <li className="nav-item hov2">
+                <Link
+                  to="/dispatcher-map"
+                  style={{ textDecoration: 'none' }}>
+                  <p className="link-dark px-2 text-menu text-menu">КАРТА</p>
+                </Link>
+                <div className="bl_yel2"></div>
+              </li>
+            </ul>
+            <ul className="nav">
+              <li className="nav-item">
+                <h5 className="nav-link link-dark px-2 text-menu">ДИСПЕТЧЕР</h5>
+              </li>
+            </ul>
+          </div>
+        </header>
+      </div>
 
       <LogoField />
 
@@ -149,7 +203,7 @@ export default function CustomerList() {
 
 
               <div className="list-group w-auto bot-block">
-                {}
+
                 {obj.map((item) =>
                   <RequestForm
                     name={item.name}
@@ -170,7 +224,7 @@ export default function CustomerList() {
         </div>
 
         {isInfoOpened ?
-          <RequestInfo
+          <RequestInfoEdit
             name={currentObj.name}
             lastName={currentObj.lastName}
             telephone={currentObj.telephone}

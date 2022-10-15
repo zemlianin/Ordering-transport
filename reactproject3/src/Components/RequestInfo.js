@@ -2,8 +2,8 @@
 
 export default function RequestInfo(props) {
   return (
-    <div className="info-block" 
-    style={{ height: window.screen.height }}>
+    <div className="info-block"
+      style={{ height: window.screen.height }}>
 
       <div className="modal modal-sheet position-static d-block py-5" tabIndex="-1" role="dialog" id="modalSheet">
         <div className="container form-list">
@@ -72,6 +72,9 @@ export default function RequestInfo(props) {
                   </div>
 
                 </div>
+
+                <button class="w-100 btn btn-warning btn-lg text-p"
+                  type="submit" style={{backgroundColor: "#f54c4c"}}>УДАЛИТЬ ЗАЯВКУ</button>
               </form>
             </div>
           </div>

@@ -206,20 +206,7 @@ export default function Customer() {
                         Введите корректный адрес.
                       </div>
                     </div>
-
-                    {/* <div className="col-md-12">
-                      <label htmlFor="country" className="form-label text">Адрес</label>
-                      <select className="form-select text" id="country" required="">
-                        <option value="">Выберите адрес</option>
-                        <option>Камчатка</option>
-                        <option>Ялта</option>
-                        <option>Сибирь</option>
-                      </select>
-                      <div className="invalid-feedback text">
-                        Выберите корректный адрес.
-                      </div>
-                    </div> */}
-
+                    
                     <hr className="my-4" />
 
                     <div className="col-md-12">

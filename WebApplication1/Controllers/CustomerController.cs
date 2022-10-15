@@ -14,19 +14,21 @@ namespace WebApplication1.Controllers
         [EnableCors("_myAllowSpecificOrigins")]
 
         [HttpGet("get")]
-        public IActionResult Get(int CustomerId)
+        public IActionResult Get(string userName)
         {
             try
             {
+
                 using (ApplicationContext db = new ApplicationContext())
                 {
+                    var CustomerId = db.Customers.First(a => userName == a.UserName).Id;
                     var t = db.Customers.Where(p => p.Id == CustomerId).ToList()[0].Forms;
                     return Ok(t);
                 }
             }
             catch (Exception ex)
             {
-                return NotFound($"Не найден заказчик с id = {CustomerId}");
+                return NotFound($"Не найден заказчик");
             }
         }
 

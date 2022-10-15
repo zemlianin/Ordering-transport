@@ -1,4 +1,5 @@
-﻿using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+﻿using System.Text.Json;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace WebApplication1.Models
 {
@@ -10,5 +11,17 @@ namespace WebApplication1.Models
         public string PhoneNumber { get; set; }
         public Transport Transport { get; set; }
 
+        public string CurrentLocationJson { get; set; }
+        public Location CurrentLocation
+        {
+            get
+            {
+                return JsonSerializer.Deserialize<Location>(CurrentLocationJson);
+            }
+            set
+            {
+                CurrentLocationJson = JsonSerializer.Serialize<Location>(value);
+            }
+        }
     }
 }

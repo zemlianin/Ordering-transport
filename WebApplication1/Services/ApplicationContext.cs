@@ -21,7 +21,9 @@ namespace WebApplication1.Services
         {
             modelBuilder.Entity<Form>()
                 .Ignore(e => e.Location);
-                 
+            modelBuilder.Entity<Driver>()
+                .Ignore(e => e.CurrentLocation);
+
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

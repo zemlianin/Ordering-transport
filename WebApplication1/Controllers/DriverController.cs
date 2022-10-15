@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient.Server;
 using WebApplication1.Models;
 using WebApplication1.Services;
 
@@ -17,11 +18,17 @@ namespace WebApplication1.Controllers
         public IActionResult Get(int id)
         {
 
-
-            using (ApplicationContext db = new ApplicationContext())
+            try
             {
-                var t = db.Drivers.Where(p => p.Id == id).ToList();
-                return Ok(t);
+                using (ApplicationContext db = new ApplicationContext())
+                {
+                    var t = db.Drivers.Where(p => p.Id == id).ToList();
+                    return Ok(t);
+                }
+            }
+            catch (Exception)
+            {
+                return NotFound($"Не найден водитель c {id}.");
             }
 
         }
@@ -31,6 +38,7 @@ namespace WebApplication1.Controllers
         [HttpGet("post")]
         public IActionResult Post(int Id, string UserName, string PhoneNumber)
         {
+
             using (ApplicationContext db = new ApplicationContext())
             {
                 db.Drivers.Add(new Driver()

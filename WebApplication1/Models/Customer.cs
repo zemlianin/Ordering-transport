@@ -8,11 +8,8 @@ namespace WebApplication1.Models
         public string UserName { get; set; }
 
         public string PhoneNumber { get; set; }
-        public ICollection<Form> Forms { get; set; }
-        public Customer()
-        {
-            Forms = new List<Form>();
-        }
+       // public ICollection<Form> Forms { get; set; }
+        
     }
 }
         

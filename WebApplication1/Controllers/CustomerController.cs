@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers
                 using (ApplicationContext db = new ApplicationContext())
                 {
                     var CustomerId = db.Customers.First(a => userName == a.UserName).Id;
-                    var t = db.Customers.Where(p => p.Id == CustomerId).ToList()[0].Forms;
+                    var t = db.Forms.Where((p) => p.CustomerId == CustomerId).ToList();
                     return Ok(t);
                 }
             }

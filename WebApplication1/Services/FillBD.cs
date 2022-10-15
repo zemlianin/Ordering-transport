@@ -110,7 +110,9 @@ namespace WebApplication1.Services
                     TransportType = "Погрузчик_Фронтальный",
                     Location = new Location() { X = 1, Y = 2 },
                     BeginDate = "1.1.2020",
-                    EndDate = "2.1.2020"
+                    EndDate = "2.1.2020",
+                    IsActive = 0
+                    
                 };
                 var Form2 = new Form()
                 {
@@ -119,7 +121,8 @@ namespace WebApplication1.Services
                     TransportType = "Погрузчик_Фронтальный",
                     Location = new Location() { X = 2, Y = 4 },
                     BeginDate = "4.1.2020",
-                    EndDate = "5.1.2020"
+                    EndDate = "5.1.2020",
+                    IsActive = 1
                 };
                 var Form3 = new Form()
                 {
@@ -128,7 +131,8 @@ namespace WebApplication1.Services
                     TransportType = "Погрузчик_Телескопический",
                     Location = new Location() { X = 5, Y = 6 },
                     BeginDate = "8.1.2020",
-                    EndDate = "9.1.2020"
+                    EndDate = "9.1.2020",
+                    IsActive = 2
                 };
                 var Form4 = new Form()
                 {
@@ -137,7 +141,8 @@ namespace WebApplication1.Services
                     TransportType = "Автовышка (32 м)",
                     Location = new Location() { X = 12, Y = 34 },
                     BeginDate = "10.1.2020",
-                    EndDate = "11.1.2020"
+                    EndDate = "11.1.2020",
+                    IsActive = 0
                 };
                 var Form5 = new Form()
                 {
@@ -146,7 +151,8 @@ namespace WebApplication1.Services
                     TransportType = "Автовышка (28 м)",
                     Location = new Location() { X = 1, Y = 2 },
                     BeginDate = "7.1.2020",
-                    EndDate = "8.1.2020"
+                    EndDate = "8.1.2020",
+                    IsActive = 1
                 };
                 db.Forms.Add(Form1);
                 db.Forms.Add(Form2);

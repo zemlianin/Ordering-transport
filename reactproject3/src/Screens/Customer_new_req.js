@@ -11,11 +11,26 @@ import LogoField from '../Components/LogoField';
 import FooterClass from '../Components/FooterClass';
 
 
+// var currentRequest = {
+//   name: "",
+//   lastName: "",
+//   telephon: "",
+//   address: "",
+//   beginDate: "",
+//   endDate: "",
+//   typeOfVehicle: "",
+//   priotity: "",
+//   comment: "",
+//             double x,
+//             double y,
+// }
+
 var currentRequest = {
   name: "",
   lastName: "",
   telephon: "",
-  address: "",
+  x: 51.1,
+  y: 52.6,
   beginDate: "",
   endDate: "",
   typeOfVehicle: "",
@@ -111,7 +126,7 @@ export default function Customer() {
                         className="form-control"
                         id="firstName"
                         placeholder="Иван"
-                        onChange={onChangeName}
+                        onChange={() => onChangeName()}
                         required=""
                       />
                       <div className="invalid-feedback">
@@ -126,7 +141,7 @@ export default function Customer() {
                         className="form-control"
                         id="lastName"
                         placeholder="Иванов"
-                        onChange={onChangeLastName}
+                        onChange={() => onChangeLastName()}
                         required=""
                       />
                       <div className="invalid-feedback">
@@ -141,7 +156,7 @@ export default function Customer() {
                         className="form-control"
                         id="number"
                         placeholder="+7 (912) 345-67-89"
-                        onChange={onChangeTelephon}
+                        onChange={() => onChangeTelephon()}
                         required=""
                       />
                       <div className="invalid-feedback">
@@ -157,7 +172,7 @@ export default function Customer() {
                         className="form-control"
                         id="date_start"
                         placeholder="01.01.2023"
-                        onChange={onChangeBeginDate}
+                        onChange={() => onChangeBeginDate()}
                       />
                       <div className="invalid-feedback">
                         Пожалуйста введите начальную дату корректно.
@@ -170,7 +185,7 @@ export default function Customer() {
                         className="form-control"
                         id="date_finish"
                         placeholder="01.02.2023"
-                        onChange={onChangeEndDate}
+                        onChange={() => onChangeEndDate()}
                       />
                       <div className="invalid-feedback">
                         Пожалуйста введите конечную дату корректно.
@@ -184,7 +199,7 @@ export default function Customer() {
                         className="form-control"
                         id="address"
                         placeholder="Россия, Москва, Земляной Вал, 14"
-                        onChange={onChangeAddress}
+                        onChange={() => onChangeAddress()}
                         required=""
                       />
                       <div className="invalid-feedback">
@@ -193,24 +208,24 @@ export default function Customer() {
                     </div>
 
                     {/* <div className="col-md-12">
-                                            <label htmlFor="country" className="form-label text">Адрес</label>
-                                            <select className="form-select text" id="country" required="">
-                                                <option value="">Выберите адрес</option>
-                                                <option>Камчатка</option>
-                                                <option>Ялта</option>
-                                                <option>Сибирь</option>
-                                            </select>
-                                            <div className="invalid-feedback text">
-                                                Выберите корректный адрес.
-                                            </div>
-                                        </div> */}
+                      <label htmlFor="country" className="form-label text">Адрес</label>
+                      <select className="form-select text" id="country" required="">
+                        <option value="">Выберите адрес</option>
+                        <option>Камчатка</option>
+                        <option>Ялта</option>
+                        <option>Сибирь</option>
+                      </select>
+                      <div className="invalid-feedback text">
+                        Выберите корректный адрес.
+                      </div>
+                    </div> */}
 
                     <hr className="my-4" />
 
                     <div className="col-md-12">
                       <label htmlFor="type" className="form-label text">Вид машины</label>
                       <select className="form-select text" id="car" required=""
-                        onChange={onSelectVehicle}>
+                        onChange={() => onSelectVehicle()}>
                         <option value="">Выберите тип машины</option>
                         <option>Погрузчик</option>
                         <option>Трактор</option>
@@ -228,7 +243,7 @@ export default function Customer() {
                         className="form-control"
                         id="address"
                         placeholder="Грузоподъёмность выше 2 тонн"
-                        onChange={onChangeComment}
+                        onChange={() => onChangeComment()}
                         required=""
                       />
                       <div className="invalid-feedback">
@@ -241,26 +256,27 @@ export default function Customer() {
                     <div className="col-md-12">
                       <label htmlFor="type" className="form-label text">Уровень приоритета</label>
                       <select className="form-select text" id="car" required=""
-                        onChange={onSelectPriority}>
+                        onChange={() => onSelectPriority()}>
                         <option value="">Выберите уровень приоритета</option>
                         <option>Чрезвучайная ситуация</option>
-                        <option>Срочно</option>
-                        <option>Не очень срочно</option>
-                        <option>Совсем не срочно</option>
+                        <option>Высокий приоритет</option>
+                        <option>Стандартный приоритет</option>
+                        <option>Низкий приоритет</option>
                       </select>
                       <div className="invalid-feedback">
-                        Выберите корректный тип машины.
+                        Выберите корректный приоритет.
                       </div>
                     </div>
 
                     <button
-                      className="w-100 btn btn-warning btn-lg text-p"
+                      className="w-100 btn btn-warning text-p"
                       type="submit"
                       onClick={() => onSubmit()}
                     >ОТПРАВИТЬ ЗАЯВКУ
                     </button>
                   </div>
                 </form>
+
               </div>
             </div>
           </div>

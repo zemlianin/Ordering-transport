@@ -8,6 +8,7 @@ import '../Styles/style.css';
 import HeaderNav from '../Components/HeaderMain';
 import LogoField from '../Components/LogoField';
 import RequestInfo from '../Components/RequestInfo';
+import RequestForm from '../Components/RequestForm';
 import FooterClass from '../Components/FooterClass';
 import React from 'react';
 
@@ -23,6 +24,26 @@ var obj = [
     typeOfVehicle: "Погрузчик",
     priority: "Стандартный",
   },
+  {
+    name: "Артём",
+    lastName: "Федоров",
+    telephone: "+7(977) 777 77 77",
+    beginDate: "12.06.2022",
+    endDate: "12.06.2023",
+    address: "Россия, Архангельская область2",
+    typeOfVehicle: "Погрузчик",
+    priority: "Стандартный",
+  },
+  {
+    name: "Артём",
+    lastName: "Федоров",
+    telephone: "+7(977) 777 77 77",
+    beginDate: "12.06.2022",
+    endDate: "12.06.2023",
+    address: "Россия, Архангельская область3",
+    typeOfVehicle: "Погрузчик",
+    priority: "Стандартный",
+  },
 ]
 
 function GetRequestInfoDB(props) {
@@ -33,14 +54,14 @@ function GetRequestInfoDB(props) {
     return (
       <div>
         <RequestInfo
-          name={obj[0].name}
-          lastName={obj[0].lastName}
-          telephone={obj[0].telephone}
-          beginDate={obj[0].beginDate}
-          endDate={obj[0].endDate}
-          address={obj[0].address}
-          typeOfVehicle={obj[0].typeOfVehicle}
-          priority={obj[0].priority}
+          name={props.name}
+          lastName={props.lastName}
+          telephone={props.telephone}
+          beginDate={props.beginDate}
+          endDate={props.endDate}
+          address={props.address}
+          typeOfVehicle={props.typeOfVehicle}
+          priority={props.priority}
           onClickHand={() => props.setInfoOpened(false)}
         />
       </div>
@@ -50,11 +71,11 @@ function GetRequestInfoDB(props) {
   }
 }
 
-function GetListOfRequests(){
+function GetListOfRequests() {
   console.log("BD start");
   // fetch();
 
-  
+
 }
 
 async function onSubmit(event) {
@@ -72,6 +93,10 @@ async function onSubmit(event) {
 
 export default function CustomerList() {
   const [infoOpened, setInfoOpened] = React.useState(false);
+
+  React.useEffect(() => {
+    console.log("+");
+  }, [infoOpened]);
 
   return (
     <body>
@@ -133,8 +158,18 @@ export default function CustomerList() {
 
 
               <div className="list-group w-auto bot-block">
-                
-                <div className="list-group-item list-group-item-action d-flex gap-3 py-3" onClick={() => setInfoOpened(true)}>
+
+                {obj.map((item) =>
+                  <RequestForm
+                    address={item.address}
+                    typeOfVehicle={item.typeOfVehicle}
+                    beginDate={item.beginDate}
+                    endDate={item.endDate}
+                    setInfoOpened={() => setInfoOpened(false)}
+                  />
+                )}
+
+                {/* <div className="list-group-item list-group-item-action d-flex gap-3 py-3" onClick={() => setInfoOpened(true)}>
                   <div className="d-flex gap-2 w-100 justify-content-between">
                     <div>
                       <h6 className="mb-0 text-list">Россия, Чебоксарская область</h6>
@@ -145,39 +180,14 @@ export default function CustomerList() {
                       <small className="opacity-50 text-nowrap">до 12.06.2023</small>
                     </div>
                   </div>
-                </div>
-
-                <a href="#" className="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                  <div className="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                      <h6 className="mb-0 text-list">Россия, Архангельская область</h6>
-                      <p className="mb-0 opacity-75">Самосвал</p>
-                    </div>
-                    <div>
-                      <small className="opacity-50 text-nowrap">c 01.02.2020</small>
-                      <small className="opacity-50 text-nowrap">до 12.09.2020</small>
-                    </div>
-                  </div>
-                </a>
-                <a href="#" className="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                  <div className="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                      <h6 className="mb-0 text-list">Россия, город Рудный</h6>
-                      <p className="mb-0 opacity-75">Трактор</p>
-                    </div>
-                    <div>
-                      <small className="opacity-50 text-nowrap">c 11.03.2019</small>
-                      <small className="opacity-50 text-nowrap">до 23.09.2021</small>
-                    </div>
-                  </div>
-                </a>
+                </div> */}
 
               </div>
             </div>
           </div>
         </div>
 
-        {GetRequestInfoDB({infoOpened: infoOpened, setInfoOpened: setInfoOpened})}
+        {GetRequestInfoDB({ infoOpened: infoOpened, setInfoOpened: setInfoOpened })}
 
       </main>
 

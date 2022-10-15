@@ -16,9 +16,15 @@ namespace WebApplication1.Services
             Database.EnsureDeleted();
             Database.EnsureCreated();
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Form>()
+                .Ignore(e => e.Location);
+                 
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Server=postgres;Port=5432;User Id=app;Password=app;Database=mydbname2;");
+            optionsBuilder.UseNpgsql("Server=localhost;Port=8080;User Id=app;Password=app;Database=mydbname2;");
         }
     }
 }

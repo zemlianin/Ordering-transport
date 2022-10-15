@@ -31,10 +31,12 @@ namespace WebApplication1.Controllers
                     TransportType = transportType,
                     BeginDate = beginDate,
                     EndDate = endDate,
-                });
+                    Location = new Location()
+                }) ;
                 context.SaveChanges();
                 return Ok();
-            } catch
+            }
+            catch
             {
                 return BadRequest("Что-то пошло не так при отправке формы.");
             }*/
@@ -46,12 +48,7 @@ namespace WebApplication1.Controllers
         [HttpGet("get")]
         public IActionResult Get(int formId)
         {
-            return Ok(new Form()
-            {
-                Id = formId,
-                BeginDate = DateTime.Now,
-                EndDate = DateTime.Now.AddDays(2),
-            });
+            return Ok(1);
         }
 
 

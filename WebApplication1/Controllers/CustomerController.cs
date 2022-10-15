@@ -16,14 +16,10 @@ namespace WebApplication1.Controllers
         [HttpGet("get")]
         public IActionResult Get(int formId)
         {
-            return Ok(new List<Form>(){
-                new Form()
-                {
-                    Id = formId,
-                    BeginDate = DateTime.Now,
-                    EndDate = DateTime.Now.AddDays(2),
-                } 
-            });
+            using (ApplicationContext db = new ApplicationContext())
+            {
+               return  Ok(db.Customers.ToArray());
+            }
         }
 
         [HttpPost("post")]
@@ -32,8 +28,9 @@ namespace WebApplication1.Controllers
             using (ApplicationContext db = new ApplicationContext())
             {
                 db.Customers.Add(cust);
+                return Ok(db.Customers.Count());
             }
-            return Ok(new List<Form>());
+            
                 
         }
 

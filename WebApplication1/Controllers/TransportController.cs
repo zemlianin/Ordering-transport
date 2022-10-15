@@ -10,7 +10,7 @@ namespace WebApplication1.Controllers
     public class TransportController : Controller
     {
         [EnableCors("_myAllowSpecificOrigins")]
-        [HttpPost("post")]
+        [HttpPost("post2")]
         public IActionResult Post()
         {
             return Ok();
@@ -18,9 +18,14 @@ namespace WebApplication1.Controllers
 
         [EnableCors("_myAllowSpecificOrigins")]
         [HttpGet("get")]
-        public Transport[] Get()
+        public Tuple<Transport[], Transport[]> Get(string type, string date)
         {
-            return new Transport[] {new Transport() { DriverId = 1, Id = 1, transportType = "tractor"}, new Transport() { DriverId = 2, Id = 2, transportType = "tractor" } };
+            return new Tuple<Transport[], Transport[]>(new Transport[] { new Transport() {Id = 1, Name = "КАМАЗ 43114", Number = "A114/999",
+                TypePark = "Автовышка (35м)", transportType = "JCB 527-58", Driver = new Driver(), DriverId = 1 },
+            new Transport() {Id = 3, Name = "КАМАЗ 43114", Number = "A114/100",
+                TypePark = "Автовышка (35м)", transportType = "JCB 527-58", Driver = new Driver(), DriverId = 3 }}, 
+                new Transport[] { new Transport() {Id = 2, Name = "КАМАЗ 43114", Number = "A114/900",
+                TypePark = "Автовышка (35м)", transportType = "JCB 527-58", Driver = new Driver(), DriverId = 2 } });
         }
     }
 }

@@ -26,5 +26,16 @@ namespace WebApplication1.Controllers
             });
         }
 
+        [HttpPost("post")]
+        public IActionResult Post(Customer cust)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                db.Customers.Add(cust);
+            }
+            return Ok(new List<Form>());
+                
+        }
+
     }
 }

@@ -8,12 +8,12 @@ namespace WebApplication1.Services
     public class ApplicationContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
-        public DbSet<Dispatcher> Dispatcher { get; set; }
+        public DbSet<WebApplication1.Models.Duspatcher> Dispatchers { get; set; }
         public DbSet<Form> Forms { get; set; }
-        public DbSet<Location> Locations { get; set; }
         public DbSet<Driver> Drivers { get; set; }
         public ApplicationContext()
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

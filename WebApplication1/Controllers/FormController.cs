@@ -13,7 +13,7 @@ namespace WebApplication1.Controllers
     {
         [EnableCors("_myAllowSpecificOrigins")]
 
-        [HttpPost("post")]
+        [HttpGet("post")]
         public IActionResult Post(int customerId, string transportType, DateTime beginDate, DateTime endDate)
         {
             /*try
@@ -36,7 +36,7 @@ namespace WebApplication1.Controllers
             {
                 return BadRequest("Что-то пошло не так при отправке формы.");
             }*/
-            return Ok();
+            return Ok(1234);
         }
 
         [EnableCors("_myAllowSpecificOrigins")]

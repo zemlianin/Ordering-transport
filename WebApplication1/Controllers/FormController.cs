@@ -16,7 +16,16 @@ namespace WebApplication1.Controllers
         [EnableCors("_myAllowSpecificOrigins")]
 
         [HttpGet("post")]
-        public IActionResult Post(string name, string lastName, string telephon, double x, double y, DateTime beginDate, DateTime endDate, string typeOfVehicle, int priority)
+        public IActionResult Post(
+            string name,
+            string lastName,
+            string telephon,
+            double x,
+            double y,
+            DateTime beginDate,
+            DateTime endDate,
+            string typeOfVehicle,
+            int priority)
         {
             try
             {
@@ -25,10 +34,14 @@ namespace WebApplication1.Controllers
                     return BadRequest("Время начала меньше либо равно времени конца.");
                 }
                 using var context = new ApplicationContext();
-                int customerId = context.Customers.First(rec => rec.PhoneNumber == telephon && rec.UserName == $"{lastName} {name}").Id;
+                var customer = context.Customers.First(rec => rec.PhoneNumber == telephon && rec.UserName == $"{lastName} {name}");
+                if (customer == null)
+                {
+                    return NotFound($"Не найден пользователь: {lastName} {name}({telephon}).");
+                }
                 context.Forms.Add(new()
                 {
-                    CustomeId = customerId,
+                    CustomeId = customer.Id,
                     TransportType = typeOfVehicle,
                     BeginDate = beginDate,
                     EndDate = endDate,

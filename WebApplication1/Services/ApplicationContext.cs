@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore;
+using WebApplication1.Models;
 
-namespace WebApplication1.Models
+namespace WebApplication1.Services
 {
     public class ApplicationContext : DbContext
     {

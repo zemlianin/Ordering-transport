@@ -95,7 +95,7 @@ async function onSubmit(event) {
 
 export default function Customer() {
   return (
-    <body>
+    <div>
       <HeaderNav />
 
       <LogoField />
@@ -268,6 +268,6 @@ export default function Customer() {
       </main>
 
       <FooterClass />
-    </body>
+    </div>
   );
 }

@@ -116,7 +116,7 @@ export default function DispatcherList() {
   // }, [infoOpened]);
 
   return (
-    <body>
+    <div>
       <div>
         <header className="py-2 bg-light border-bottom">
           <div className="container d-flex flex-wrap">
@@ -241,6 +241,6 @@ export default function DispatcherList() {
       </main>
 
       <FooterClass />
-    </body>
+    </div>
   );
 }

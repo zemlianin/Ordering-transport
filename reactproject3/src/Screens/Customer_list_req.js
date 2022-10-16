@@ -12,41 +12,41 @@ import React from 'react';
 
 var login = "Anya";
 
-var obj = [
-  {
-    name: "Артём",
-    lastName: "Федоров",
-    telephone: "+7(977) 777 77 77",
-    beginDate: "12.06.2022",
-    endDate: "12.06.2023",
-    address: "Россия, Архангельская область",
-    typeOfVehicle: "Погрузчик",
-    priority: "Стандартный",
-    comment: "comment1",
-  },
-  {
-    name: "Женя",
-    lastName: "Весёлый",
-    telephone: "+7(977) 777 77 77",
-    beginDate: "12.06.2022",
-    endDate: "12.06.2023",
-    address: "Россия, Архангельская область2",
-    typeOfVehicle: "Погрузчик",
-    priority: "Стандартный",
-    comment: "comment2",
-  },
-  {
-    name: "Саня",
-    lastName: "Грустный",
-    telephone: "+7(977) 777 77 77",
-    beginDate: "12.06.2022",
-    endDate: "12.06.2023",
-    address: "Россия, Архангельская область3",
-    typeOfVehicle: "Погрузчик",
-    priority: "Стандартный",
-    comment: "comment3",
-  }
-]
+// var obj = [
+//   {
+//     name: "Артём",
+//     lastName: "Федоров",
+//     telephone: "+7(977) 777 77 77",
+//     beginDate: "12.06.2022",
+//     endDate: "12.06.2023",
+//     address: "Россия, Архангельская область",
+//     typeOfVehicle: "Погрузчик",
+//     priority: "Стандартный",
+//     comment: "comment1",
+//   },
+//   {
+//     name: "Женя",
+//     lastName: "Весёлый",
+//     telephone: "+7(977) 777 77 77",
+//     beginDate: "12.06.2022",
+//     endDate: "12.06.2023",
+//     address: "Россия, Архангельская область2",
+//     typeOfVehicle: "Погрузчик",
+//     priority: "Стандартный",
+//     comment: "comment2",
+//   },
+//   {
+//     name: "Саня",
+//     lastName: "Грустный",
+//     telephone: "+7(977) 777 77 77",
+//     beginDate: "12.06.2022",
+//     endDate: "12.06.2023",
+//     address: "Россия, Архангельская область3",
+//     typeOfVehicle: "Погрузчик",
+//     priority: "Стандартный",
+//     comment: "comment3",
+//   }
+// ]
 
 var currentObj = {
   name: "Default",
@@ -60,42 +60,39 @@ var currentObj = {
   comment: "DefaultComment",
 }
 
-function GetListOfRequestsDB() {
-  console.log("GetListOfRequestsDB");
-  const response = fetch("https://localhost:7090/Customer/get?userName=" + login);
-  console.log(response);
-  // const data = response.json();
-  // console.log(data);
-  
-}
+// async function GetListOfRequestsDB() {
+//   // console.log("GetListOfRequestsDB");
 
 
-async function onSubmit(event) {
-  // // console.log(event);
-  // console.log(currentRequest);
-  // // alert(1);
-  // console.log("+++");
-  // var url = new URL("https://localhost:7090/Form/post?");
-  // url.search = new URLSearchParams(currentRequest).toString();
-  // const response = await fetch(url);
-  // console.log(response);
-  // const data = response.json();
-  // console.log(data);
-}
+//   // obj.A
+// }
+
+
+// async function onSubmit(event) {
+// // console.log(event);
+// console.log(currentRequest);
+// // alert(1);
+// console.log("+++");
+// var url = new URL("https://localhost:7090/Form/post?");
+// url.search = new URLSearchParams(currentRequest).toString();
+// const response = await fetch(url);
+// console.log(response);
+// const data = response.json();
+// console.log(data);
+// }
 
 function SetCurrent(item) {
   currentObj = item;
 }
 
 export default function CustomerList() {
-  const [isInfoOpened, setInfoOpened] = React.useState(false);
-
+  
   // React.useEffect(() => {
   //   console.log("+");
   // }, [infoOpened]);
 
   return (
-    <body>
+    <div>
       <HeaderNav />
 
       <LogoField />
@@ -154,8 +151,7 @@ export default function CustomerList() {
 
 
               <div className="list-group w-auto bot-block">
-                {GetListOfRequestsDB()}
-                {obj.map((item) =>
+                {items.map((item) =>
                   <RequestForm
                     name={item.name}
                     lastName={item.lastName}
@@ -195,6 +191,6 @@ export default function CustomerList() {
       </main>
 
       <FooterClass />
-    </body>
+    </div>
   );
 }

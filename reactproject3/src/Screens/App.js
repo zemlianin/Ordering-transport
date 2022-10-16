@@ -1,11 +1,10 @@
-import '../Styles/App.css';
-// import { YMaps, Map, Placemark } from 'react-yandex-maps'
-// import { useRef } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../Styles/App.css';
 import '../Styles/enter_page.css';
 import '../Styles/style.css';
 import { Link } from "react-router-dom";
 import LogoField from '../Components/LogoField';
+import React from 'react';
 
 // Группы объектов
 // var groups = [
@@ -130,57 +129,138 @@ import LogoField from '../Components/LogoField';
 // )
 
 
-function App() {
-    // console.log("+++");
-    // const response = fetch("https://localhost:7090/Transport/post");
-    //const data =  response.json();
-    //console.log(resp);
-    return (
-        <body>
-            <LogoField />
 
-            <div>
-                <div className="modal modal-sheet position-static d-block py-5 back2"
-                    tabIndex="-1"
-                    role="dialog"
-                    id="modalSheet"
-                    style={{ height: window.screen.height }}
-                >
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content rounded-4 shadow list-margin">
-                            <div className="modal-header border-bottom-0">
-                                <h1 className="modal-title fs-5 text">ВХОД</h1>
-                            </div>
-                            <div className="modal-body py-0 text">
-                                <p>Пожалуйста, выберите роль, которая необходима Вам для продолжения работы.</p>
-                            </div>
-                            <div className="modal-footer flex-column border-top-0">
-                                <button
-                                    onClick="document.location='main_customer.html'"
-                                    type="button"
-                                    className="btn btn-lg btn-outline-light w-100 mx-0 mb-2 text-p "
-                                ><Link
-                                    to="/customer"
-                                    style={{ textDecoration: 'none' }}>
-                                        <p className="text-p">ЗАКАЗЧИК</p>
-                                    </Link></button>
-                                <button
-                                    onClick="document.location='main_dispatcher.html'"
-                                    type="button"
-                                    className="btn btn-lg btn-warning w-100 mx-0 text-p"
-                                    data-bs-dismiss="modal"
-                                ><Link
-                                    to="/dispatcher"
-                                    style={{ textDecoration: 'none' }}>
-                                        <p className="text-p " >ДИСПЕТЧЕР</p>
-                                    </Link></button>
-                            </div>
-                        </div>
-                    </div>
+function App() {
+  const [items, setItems] = React.useState([]);
+  const [isInfoOpened, setInfoOpened] = React.useState(false);
+
+  var login = "Anya";
+  React.useEffect(() => {
+    fetch(("https://localhost:7090/Customer/get?userName=" + login))
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        // console.log(json[0]);
+        setItems(json[0]);
+      });
+  }, []);
+  console.log(items);
+
+  function onChangeInputLogin(event) {
+
+    console.log(event.target.value.length);
+    setCount(event.target.value.length);
+    if (count > 0) {
+      setIsCustomer(false);
+    } else {
+      setIsCustomer(true);
+    }
+
+  }
+
+  const [isCustomer, setIsCustomer] = React.useState(true);
+  const [count, setCount] = React.useState(-1);
+
+  return (
+    <div>
+      <LogoField />
+
+      <div>
+        <div className="modal modal-sheet position-static d-block py-5 back2"
+          tabIndex="-1"
+          role="dialog"
+          id="modalSheet"
+          style={{ height: window.screen.height }}
+        >
+          <div className="modal-dialog" role="document">
+            <div className="modal-content rounded-4 shadow list-margin">
+              <div className="modal-header border-bottom-0">
+                <h1 className="modal-title fs-5 text">ВХОД</h1>
+              </div>
+
+              <div className="modal-body py-0 text">
+                <div className="form-check form-switch border-top-0 switch">
+                  <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+                  <label className="form-check-label text-p" htmlFor="flexSwitchCheckDefault"> Добрый вечер! Вы диспетчер?</label>
                 </div>
+
+                <div className="modal-footer flex-column border-top-0">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="firstName"
+                    placeholder="Login"
+                    required=""
+                    onChange={onChangeInputLogin} />
+                  <div className="invalid-feedback">
+                    Имя введено некорректно.
+                  </div>
+                </div>
+
+                {/* {isCustomer ? */}
+                <div className="modal-footer flex-column border-top-0">
+                  <button
+                    type="button"
+                    className="btn btn-lg btn-warning w-100 mx-0 text-p"
+                    data-bs-dismiss="modal">
+                    <Link
+                      to="/dispatcher"
+                      style={{ textDecoration: 'none' }}>
+                      <p className="text-p">ПРОДОЛЖИТЬ (ДИСПЕТЧЕР)</p>
+                    </Link>
+                  </button>
+                </div>
+                {/* : */}
+                <div className="modal-footer flex-column border-top-0">
+                  <button
+                    type="button"
+                    className="btn btn-lg btn-warning w-100 mx-0 text-p"
+                    data-bs-dismiss="modal"
+                  // onClick={}
+                  >
+                    <Link
+                      to="/customer"
+                      style={{ textDecoration: 'none' }}>
+                      <p className="text-p">ПРОДОЛЖИТЬ (ЗАКАЗЧИК)</p>
+                    </Link>
+                  </button>
+                </div>
+                {/* } */}
+
+
+                {/* <div className="modal-body py-0 text">
+                  <p>Пожалуйста, выберите роль, которая необходима Вам для продолжения работы.</p>
+                </div>
+                <div className="modal-footer flex-column border-top-0">
+                  <button
+                    onClick="document.location='main_customer.html'"
+                    type="button"
+                    className="btn btn-lg btn-outline-light w-100 mx-0 mb-2 text-p "
+                  ><Link
+                    to="/customer"
+                    style={{ textDecoration: 'none' }}>
+                      <p className="text-p">ЗАКАЗЧИК</p>
+                    </Link></button>
+                  <button
+                    onClick="document.location='main_dispatcher.html'"
+                    type="button"
+                    className="btn btn-lg btn-warning w-100 mx-0 text-p"
+                    data-bs-dismiss="modal"
+                  ><Link
+                    to="/dispatcher"
+                    style={{ textDecoration: 'none' }}>
+                      <p className="text-p " >ДИСПЕТЧЕР</p>
+                    </Link></button>
+                </div> */}
+
+              </div>
             </div>
-        </body>
-    );
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App;

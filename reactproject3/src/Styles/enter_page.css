@@ -7,6 +7,10 @@
     background-size: 100%;
 }
 
+.list-margin {
+    padding: 2rem;
+}
+
 .size {
     width: 50%;
 }
@@ -15,6 +19,12 @@
     padding: 16px;
 }
 
-.list-margin {
-    padding: 2rem;
+.switch{
+    margin: calc(var(--bs-modal-padding) - var(--bs-modal-footer-gap) * .5);
+    align-items: center;
+}
+
+.form-check-input:checked {
+    background-color: #FFB635;
+    border-color: #FFB635;
 }

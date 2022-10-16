@@ -9,15 +9,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="customer" element={<Customer />} />
-      <Route path="customer-list" element={<CustomerList />} />
-      <Route path="dispatcher" element={<Dispatcher />} />
-    </Routes>
-  </BrowserRouter>
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="customer" element={<Customer />} />
+        <Route path="customer-list" element={<CustomerList />} />
+        <Route path="dispatcher" element={<Dispatcher />} />
+      </Routes>
+    </BrowserRouter>
+    {/* //   <App /> */}
+  </React.StrictMode>
 );

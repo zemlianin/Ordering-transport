@@ -5,21 +5,9 @@ import '../Styles/customer_new_req_style.css';
 import HeaderNav from '../Components/HeaderMainCustomer';
 import LogoField from '../Components/LogoField';
 import FooterClass from '../Components/FooterClass';
+// import FooterClass from '../Components/';
+import React from 'react';
 
-
-// var currentRequest = {
-//   name: "",
-//   lastName: "",
-//   telephon: "",
-//   address: "",
-//   beginDate: "",
-//   endDate: "",
-//   typeOfVehicle: "",
-//   priotity: "",
-//   comment: "",
-//             double x,
-//             double y,
-// }
 
 var currentRequest = {
   name: "",
@@ -34,10 +22,6 @@ var currentRequest = {
   comment: "",
 }
 
-// var boolCheck = [
-//     false,
-//     false
-// ]
 
 function onChangeName(event) {
   currentRequest.name = event.target.value;
@@ -80,20 +64,28 @@ function onSelectPriority(event) {
   currentRequest.priotity = event.target.value;
 }
 
-async function onSubmit(event) {
-  // console.log(event);
-  console.log(currentRequest);
-  // alert(1);
-  console.log("+++");
-  var url = new URL("https://localhost:7090/Form/post?");
-  url.search = new URLSearchParams(currentRequest).toString();
-  const response = await fetch("https://localhost:7090/Form/post?");
-  console.log(response);
-  const data = response.json();
-  console.log(data);
-}
 
-export default function Customer() {
+ export default function Customer() {
+  async function onSubmitClick(event) {
+    // console.log(event);
+    console.log(currentRequest);
+
+    // React.useEffect(() => {
+    // fetch(("https://634b7709317dc96a30854e9b.mockapi.io/items"))
+    await fetch(("https://localhost:7090/Form/post"
+      + "?name=" + currentRequest.name
+      + "&lastName=" + currentRequest.lastName
+      + "&telephon=" + currentRequest.telephon
+      + "&x=" + currentRequest.x
+      + "&y=" + currentRequest.y
+      + "&beginDate=" + currentRequest.beginDate
+      + "&endDate=" + currentRequest.endDate
+      + "&typeOfVehicle=" + currentRequest.typeOfVehicle
+      + "&priority=" + currentRequest.priotity
+      + "&comment=" + currentRequest.comment))
+    // }, []);
+  }
+
   return (
     <div>
       <HeaderNav />
@@ -202,7 +194,7 @@ export default function Customer() {
                         Введите корректный адрес.
                       </div>
                     </div>
-                    
+
                     <hr className="my-4" />
 
                     <div className="col-md-12">
@@ -254,7 +246,7 @@ export default function Customer() {
                     <button
                       className="w-100 btn btn-warning text-p"
                       type="button"
-                      onClick={onSubmit}
+                      onClick={onSubmitClick}
                     >ОТПРАВИТЬ ЗАЯВКУ
                     </button>
                   </div>
@@ -264,7 +256,7 @@ export default function Customer() {
             </div>
           </div>
         </div>
-        
+
       </main>
 
       <FooterClass />

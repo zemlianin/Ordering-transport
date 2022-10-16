@@ -30,6 +30,6 @@ namespace WebApplication1.Models
         public string EndDate { get; set; }
         public int Priority { get; set; }
         public int DriverId { get; set; }
-        public Driver Driver { get; set; }
+        public Driver? Driver { get; set; }
     }
 }

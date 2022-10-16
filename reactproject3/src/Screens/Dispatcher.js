@@ -1,5 +1,3 @@
-// import { YMaps, Map, Placemark } from 'react-yandex-maps'
-// import { useRef } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../Styles/App.css';
 import '../Styles/customer_new_req_style.css';
@@ -70,8 +68,8 @@ function SetCurrent(item) {
 }
 
 export default function DispatcherList() {
-  const [isInfoOpened, setInfoOpened] = React.useState(false);
   const [items, setItems] = React.useState([]);
+  const [isInfoOpened, setInfoOpened] = React.useState(false);
 
   React.useEffect(() => {
     fetch(("https://634b7709317dc96a30854e9b.mockapi.io/items"))
@@ -173,11 +171,10 @@ export default function DispatcherList() {
                     </div>
                   </div>
                 </form>
-              </div>SetCurrent
+              </div>
 
 
               <div className="list-group w-auto bot-block">
-
                 {items.map((item) =>
                   <RequestForm
                     name={item.name}
@@ -187,8 +184,10 @@ export default function DispatcherList() {
                     typeOfVehicle={item.typeOfVehicle}
                     beginDate={item.beginDate}
                     endDate={item.endDate}
-                    fillCurrent={(item) => SetCurrent(item)}
-                    openInfo={() => setInfoOpened(true)}
+                    priority={item.priority}
+                    comment={item.comment}
+                    SetCurrent={(item) => SetCurrent(item)}
+                    setInfoOpened={() => setInfoOpened(true)}
                   />
                 )}
 
@@ -207,6 +206,7 @@ export default function DispatcherList() {
             address={currentObj.address}
             typeOfVehicle={currentObj.typeOfVehicle}
             priority={currentObj.priority}
+            comment={currentObj.comment}
             onClickHand={() => setInfoOpened(false)}
           /> : null
         }

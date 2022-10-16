@@ -43,7 +43,7 @@ namespace WebApplication1.Controllers
             }
             var form = new Form()
             {
-                Id = context.Forms.Count(),
+                Id = context.Forms.Count()+1,
                 CustomerId = customer.Id,
                 TransportType = typeOfVehicle,
                 BeginDate = beginDate,
@@ -55,6 +55,7 @@ namespace WebApplication1.Controllers
                 },
                 Comment = comment,
                 Priority = 2
+
                 // Priority = priority,
             };
             // var service = new FormsService();

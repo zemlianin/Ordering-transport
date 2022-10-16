@@ -64,9 +64,6 @@ var currentObj = {
 //   // console.log("GetListOfRequestsDB");
 
 
-//   // obj.A
-// }
-
 
 // async function onSubmit(event) {
 // // console.log(event);
@@ -90,8 +87,8 @@ export default function CustomerList() {
   const [isInfoOpened, setInfoOpened] = React.useState(false);
 
   React.useEffect(() => {
-    // fetch(("https://634b7709317dc96a30854e9b.mockapi.io/items"))
-    fetch(("https://localhost:7090/Customer/get?userName=Anya"))
+    fetch(("https://634b7709317dc96a30854e9b.mockapi.io/items"))
+    // fetch(("https://localhost:7090/Customer/get?userName=Anya"))
       .then((res) => {
         return res.json();
       })

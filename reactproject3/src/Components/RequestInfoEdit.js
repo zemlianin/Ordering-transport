@@ -7,7 +7,7 @@ import '../Styles/style.css';
 export default function RequestInfoEdit(props) {
   return (
     <div className="info-block"
-      style={{ height: window.screen.height }}>
+      style={{ height: window.innerWidth }}>
 
       <div className="modal modal-sheet position-static d-block py-5" tabIndex="-1" role="dialog" id="modalSheet">
         <div className="container form-list">
@@ -112,9 +112,9 @@ export default function RequestInfoEdit(props) {
                 </div>
 
                 {/* { type="button" => type="submit"} */}
-                <button class="w-100 btn btn-warning btn-lg text-p"
+                <button className="w-100 btn btn-warning btn-lg text-p"
                   type="button">СОХРАНИТЬ ЗАЯВКУ</button>
-                <button class="w-100 btn btn-warning btn-lg text-p"
+                <button className="w-100 btn btn-warning btn-lg text-p"
                   type="button" style={{ backgroundColor: "#f54c4c" }}>УДАЛИТЬ ЗАЯВКУ</button>
               </form>
             </div>

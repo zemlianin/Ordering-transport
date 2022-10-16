@@ -128,8 +128,8 @@ import React from 'react';
 //     </YMaps>
 // )
 
-export class Field{
-  static login = "default";
+export class Field {
+  static login = "d";
 }
 
 
@@ -137,7 +137,7 @@ function App() {
   // const [items, setItems] = React.useState([]);
   const [isInfoOpened, setInfoOpened] = React.useState(false);
 
- 
+
   // React.useEffect(() => {
   //   fetch(("https://localhost:7090/Customer/get?userName=" + login))
   //     .then((res) => {
@@ -154,12 +154,13 @@ function App() {
 
   function onChangeInputLogin(event) {
 
-    console.log(event.target.value.length);
     setLogin(event.target.value);
-    if (login.length > 0) {
-      setIsCustomer(false);
-    } else {
+    if (login.length > 1) {
       setIsCustomer(true);
+      // console.log(false + login.length);
+    } else {
+      setIsCustomer(false);
+      // console.log(true + login.length);
     }
   }
 
@@ -207,7 +208,6 @@ function App() {
                   </div>
                 </div>
 
-                {/* {isCustomer ? */}
                 <div className="modal-footer flex-column border-top-0">
                   <button
                     type="button"
@@ -220,22 +220,23 @@ function App() {
                     </Link>
                   </button>
                 </div>
-                {/* : */}
-                <div className="modal-footer flex-column border-top-0">
-                  <button
-                    type="button"
-                    className="btn btn-lg btn-warning w-100 mx-0 text-p"
-                    data-bs-dismiss="modal"
-                    onClick={setInputValue}
-                  >
-                    <Link
-                      to="/customer"
-                      style={{ textDecoration: 'none' }}>
-                      <p className="text-p">ПРОДОЛЖИТЬ (ЗАКАЗЧИК)</p>
-                    </Link>
-                  </button>
-                </div>
-                {/* } */}
+                {isCustomer ?
+                  <div className="modal-footer flex-column border-top-0">
+                    <button
+                      type="button"
+                      className="btn btn-lg btn-warning w-100 mx-0 text-p"
+                      data-bs-dismiss="modal"
+                      onClick={setInputValue}
+                    >
+                      <Link
+                        to="/customer"
+                        style={{ textDecoration: 'none' }}>
+                        <p className="text-p">ПРОДОЛЖИТЬ (ЗАКАЗЧИК)</p>
+                      </Link>
+                    </button>
+                  </div>
+                  : null
+                }
 
 
                 {/* <div className="modal-body py-0 text">

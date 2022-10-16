@@ -53,6 +53,8 @@ namespace WebApplication1.Controllers
                 },
                 Priority = priority,
             };
+            var service = new FormsService();
+            service.Distribute(form);
             context.Forms.Add(form);
             context.SaveChanges();
             return Ok();

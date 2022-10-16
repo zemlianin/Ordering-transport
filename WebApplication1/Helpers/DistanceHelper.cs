@@ -10,7 +10,7 @@ namespace WebApplication1.Helpers
             return degrees * Math.PI / 180;
         }
 
-        public static double DistanceInKmBetweenEarthCoordinates(Location first, Location second)
+        public static double DistanceInKm(Location first, Location second)
         {
             var earthRadiusKm = 6371;
 

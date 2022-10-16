@@ -23,5 +23,6 @@ namespace WebApplication1.Models
                 CurrentLocationJson = JsonSerializer.Serialize<Location>(value);
             }
         }
+        public List<Form> Accepted { get; set; }
     }
 }

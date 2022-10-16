@@ -87,7 +87,7 @@ async function onSubmit(event) {
   console.log("+++");
   var url = new URL("https://localhost:7090/Form/post?");
   url.search = new URLSearchParams(currentRequest).toString();
-  const response = await fetch(url);
+  const response = await fetch("https://localhost:7090/Form/post?");
   console.log(response);
   const data = response.json();
   console.log(data);
@@ -122,7 +122,7 @@ export default function Customer() {
                         className="form-control"
                         id="firstName"
                         placeholder="Иван"
-                        onChange={() => onChangeName()}
+                        onChange={onChangeName}
                         required=""
                       />
                       <div className="invalid-feedback">
@@ -137,7 +137,7 @@ export default function Customer() {
                         className="form-control"
                         id="lastName"
                         placeholder="Иванов"
-                        onChange={() => onChangeLastName()}
+                        onChange={onChangeLastName}
                         required=""
                       />
                       <div className="invalid-feedback">
@@ -152,7 +152,7 @@ export default function Customer() {
                         className="form-control"
                         id="number"
                         placeholder="+7 (912) 345-67-89"
-                        onChange={() => onChangeTelephon()}
+                        onChange={onChangeTelephon}
                         required=""
                       />
                       <div className="invalid-feedback">
@@ -168,7 +168,7 @@ export default function Customer() {
                         className="form-control"
                         id="date_start"
                         placeholder="01.01.2023"
-                        onChange={() => onChangeBeginDate()}
+                        onChange={onChangeBeginDate}
                       />
                       <div className="invalid-feedback">
                         Пожалуйста введите начальную дату корректно.
@@ -181,7 +181,7 @@ export default function Customer() {
                         className="form-control"
                         id="date_finish"
                         placeholder="01.02.2023"
-                        onChange={() => onChangeEndDate()}
+                        onChange={onChangeEndDate}
                       />
                       <div className="invalid-feedback">
                         Пожалуйста введите конечную дату корректно.
@@ -195,7 +195,7 @@ export default function Customer() {
                         className="form-control"
                         id="address"
                         placeholder="Россия, Москва, Земляной Вал, 14"
-                        onChange={() => onChangeAddress()}
+                        onChange={onChangeAddress}
                         required=""
                       />
                       <div className="invalid-feedback">
@@ -208,7 +208,7 @@ export default function Customer() {
                     <div className="col-md-12">
                       <label htmlFor="type" className="form-label text">Вид машины</label>
                       <select className="form-select text" id="car" required=""
-                        onChange={() => onSelectVehicle()}>
+                        onChange={onSelectVehicle}>
                         <option value="">Выберите тип машины</option>
                         <option>Погрузчик</option>
                         <option>Трактор</option>
@@ -226,7 +226,7 @@ export default function Customer() {
                         className="form-control"
                         id="address"
                         placeholder="Грузоподъёмность выше 2 тонн"
-                        onChange={() => onChangeComment()}
+                        onChange={onChangeComment}
                         required=""
                       />
                       <div className="invalid-feedback">
@@ -239,7 +239,7 @@ export default function Customer() {
                     <div className="col-md-12">
                       <label htmlFor="type" className="form-label text">Уровень приоритета</label>
                       <select className="form-select text" id="car" required=""
-                        onChange={() => onSelectPriority()}>
+                        onChange={onSelectPriority}>
                         <option value="">Выберите уровень приоритета</option>
                         <option>Чрезвучайная ситуация</option>
                         <option>Высокий приоритет</option>
@@ -253,8 +253,8 @@ export default function Customer() {
 
                     <button
                       className="w-100 btn btn-warning text-p"
-                      type="submit"
-                      onClick={() => onSubmit()}
+                      type="button"
+                      onClick={onSubmit}
                     >ОТПРАВИТЬ ЗАЯВКУ
                     </button>
                   </div>

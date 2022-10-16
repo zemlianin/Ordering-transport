@@ -6,8 +6,8 @@ import '../Styles/style.css';
 
 export default function RequestForm(props) {
     function func(){
-        props.fillCurrent(props);
-        props.openInfo();
+        props.SetCurrent(props);
+        props.setInfoOpened();
     }
 
     return (

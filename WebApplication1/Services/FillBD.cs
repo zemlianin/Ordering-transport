@@ -57,7 +57,8 @@ namespace WebApplication1.Services
                     transportType = "Автовышка (28 м)",
                     Number = "А095АА/999",
                     Name = "Чайка Сервис 2784SG",
-                    DriverId = 1
+                    DriverId = 1,
+                    DateSpaneList = new List<DateSpan>()
                 };
                 var Transport2 = new Transport()
                 {
@@ -66,7 +67,8 @@ namespace WebApplication1.Services
                     transportType = "Автовышка (32 м)",
                     Number = "А107АА/999",
                     Name = "КАМАЗ 43114",
-                    DriverId = 2
+                    DriverId = 2,
+                    DateSpaneList = new List<DateSpan>()
                 };
                 var Transport3 = new Transport()
                 {
@@ -75,7 +77,8 @@ namespace WebApplication1.Services
                     transportType = "Погрузчик_Телескопический",
                     Number = "А618АА/999",
                     Name = "Bobcat T2250",
-                    DriverId = 3
+                    DriverId = 3,
+                    DateSpaneList = new List<DateSpan>()
                 };
                 var Transport4 = new Transport()
                 {
@@ -84,7 +87,8 @@ namespace WebApplication1.Services
                     transportType = "Погрузчик_Фронтальный",
                     Number = "А627АА/999",
                     Name = "Dressta-534Е",
-                    DriverId = 4
+                    DriverId = 4,
+                    DateSpaneList = new List<DateSpan>()
                 };
                 var Transport5 = new Transport()
                 {
@@ -93,7 +97,8 @@ namespace WebApplication1.Services
                     transportType = "Погрузчик_Фронтальный",
                     Number = "А630АА/999",
                     Name = "HYUNDAI HL760-7A",
-                    DriverId = 4
+                    DriverId = 4,
+                    DateSpaneList = new List<DateSpan>()
                 };
 
                 db.Transport.Add(Transport1);
@@ -112,7 +117,9 @@ namespace WebApplication1.Services
                     BeginDate = "1.1.2020",
                     EndDate = "2.1.2020",
                     IsActive = 0,
-                    Comment = ""
+                    Comment = "",
+                    Priority = 0
+
 
                 };
                 var Form2 = new Form()
@@ -124,7 +131,9 @@ namespace WebApplication1.Services
                     BeginDate = "4.1.2020",
                     EndDate = "5.1.2020",
                     IsActive = 1,
-                    Comment = ""
+                    Comment = "",
+                    Priority = 0
+
                 };
                 var Form3 = new Form()
                 {
@@ -135,7 +144,8 @@ namespace WebApplication1.Services
                     BeginDate = "8.1.2020",
                     EndDate = "9.1.2020",
                     IsActive = 2,
-                    Comment = ""
+                    Comment = "",
+                    Priority = 0
                 };
                 var Form4 = new Form()
                 {
@@ -146,8 +156,9 @@ namespace WebApplication1.Services
                     BeginDate = "10.1.2020",
                     EndDate = "11.1.2020",
                     IsActive = 0,
-                    Comment = ""
-            };
+                    Comment = "",
+                    Priority = 0
+                };
                 var Form5 = new Form()
                 {
                     Id = 5,
@@ -157,7 +168,8 @@ namespace WebApplication1.Services
                     BeginDate = "7.1.2020",
                     EndDate = "8.1.2020",
                     IsActive = 1,
-                    Comment = ""
+                    Comment = "",
+                    Priority = 0
                 };
                 db.Forms.Add(Form1);
                 db.Forms.Add(Form2);

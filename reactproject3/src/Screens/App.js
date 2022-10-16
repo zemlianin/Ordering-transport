@@ -131,21 +131,21 @@ import React from 'react';
 
 
 function App() {
-  const [items, setItems] = React.useState([]);
+  // const [items, setItems] = React.useState([]);
   const [isInfoOpened, setInfoOpened] = React.useState(false);
 
-  var login = "Anya";
-  React.useEffect(() => {
-    fetch(("https://localhost:7090/Customer/get?userName=" + login))
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        // console.log(json[0]);
-        setItems(json[0]);
-      });
-  }, []);
-  console.log(items);
+  // var login = "Anya";
+  // React.useEffect(() => {
+  //   fetch(("https://localhost:7090/Customer/get?userName=" + login))
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((json) => {
+  //       // console.log(json[0]);
+  //       setItems(json[0]);
+  //     });
+  // }, []);
+  // console.log(items);
 
   function onChangeInputLogin(event) {
 

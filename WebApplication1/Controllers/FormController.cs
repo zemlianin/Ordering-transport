@@ -25,7 +25,8 @@ namespace WebApplication1.Controllers
             string beginDate,
             string endDate,
             string typeOfVehicle,
-            int priority)
+            string priority,
+            string comment)
         {
            /* try
             {
@@ -51,10 +52,10 @@ namespace WebApplication1.Controllers
                     X = x,
                     Y = y,
                 },
-                Priority = priority,
+                // Priority = priority,
             };
-            var service = new FormsService();
-            service.Distribute(form);
+            // var service = new FormsService();
+            // service.Distribute(form);
             context.Forms.Add(form);
             context.SaveChanges();
             return Ok();

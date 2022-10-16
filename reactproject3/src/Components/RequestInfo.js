@@ -85,7 +85,7 @@ export default function RequestInfo(props) {
 
                 </div>
 
-                <button class="w-100 btn btn-warning btn-lg text-p"
+                <button className="w-100 btn btn-warning btn-lg text-p"
                   type="submit" style={{ backgroundColor: "#f54c4c" }}>УДАЛИТЬ ЗАЯВКУ</button>
               </form>
             </div>

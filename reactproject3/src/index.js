@@ -18,6 +18,5 @@ root.render(
         <Route path="dispatcher" element={<Dispatcher />} />
       </Routes>
     </BrowserRouter>
-    {/* //   <App /> */}
   </React.StrictMode>
 );

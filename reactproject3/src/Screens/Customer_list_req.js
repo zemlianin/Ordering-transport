@@ -12,39 +12,39 @@ import React from 'react';
 
 var login = "Anya";
 
-// var obj = [
+// var items = [
 //   {
-//     name: "Артём",
-//     lastName: "Федоров",
-//     telephone: "+7(977) 777 77 77",
-//     beginDate: "12.06.2022",
-//     endDate: "12.06.2023",
-//     address: "Россия, Архангельская область",
-//     typeOfVehicle: "Погрузчик",
-//     priority: "Стандартный",
-//     comment: "comment1",
+//     "name": "Артём",
+//     "lastName": "Федоров",
+//     "telephone": "+7(977) 777 77 77",
+//     "beginDate": "12.06.2022",
+//     "endDate": "12.06.2023",
+//     "address": "Россия, Архангельская область",
+//     "typeOfVehicle": "Погрузчик",
+//     "priority": "Стандартный",
+//     "comment": "comment1",
 //   },
 //   {
-//     name: "Женя",
-//     lastName: "Весёлый",
-//     telephone: "+7(977) 777 77 77",
-//     beginDate: "12.06.2022",
-//     endDate: "12.06.2023",
-//     address: "Россия, Архангельская область2",
-//     typeOfVehicle: "Погрузчик",
-//     priority: "Стандартный",
-//     comment: "comment2",
+//     "name": "Женя",
+//     "lastName": "Весёлый",
+//     "telephone": "+7(977) 777 77 77",
+//     "beginDate": "12.06.2022",
+//     "endDate": "12.06.2023",
+//     "address": "Россия, Архангельская область2",
+//     "typeOfVehicle": "Погрузчик",
+//     "priority": "Стандартный",
+//     "comment": "comment2",
 //   },
 //   {
-//     name: "Саня",
-//     lastName: "Грустный",
-//     telephone: "+7(977) 777 77 77",
-//     beginDate: "12.06.2022",
-//     endDate: "12.06.2023",
-//     address: "Россия, Архангельская область3",
-//     typeOfVehicle: "Погрузчик",
-//     priority: "Стандартный",
-//     comment: "comment3",
+//     "name": "Саня",
+//     "lastName": "Грустный",
+//     "telephone": "+7(977) 777 77 77",
+//     "beginDate": "12.06.2022",
+//     "endDate": "12.06.2023",
+//     "address": "Россия, Архангельская область3",
+//     "typeOfVehicle": "Погрузчик",
+//     "priority": "Стандартный",
+//     "comment": "comment3",
 //   }
 // ]
 
@@ -86,7 +86,21 @@ function SetCurrent(item) {
 }
 
 export default function CustomerList() {
-  
+  const [items, setItems] = React.useState([]);
+  const [isInfoOpened, setInfoOpened] = React.useState(false);
+
+  React.useEffect(() => {
+    // fetch(("https://634b7709317dc96a30854e9b.mockapi.io/items"))
+    fetch(("https://localhost:7090/Customer/get?userName=Anya"))
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        console.log(json[0]);
+        setItems(json);
+      });
+  }, []);
+
   // React.useEffect(() => {
   //   console.log("+");
   // }, [infoOpened]);
@@ -162,8 +176,8 @@ export default function CustomerList() {
                     endDate={item.endDate}
                     priority={item.priority}
                     comment={item.comment}
-                    fillCurrent={(item) => SetCurrent(item)}
-                    openInfo={() => setInfoOpened(true)}
+                    SetCurrent={(item) => SetCurrent(item)}
+                    setInfoOpened={() => setInfoOpened(true)}
                   />
                 )}
 

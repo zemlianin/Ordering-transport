@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 using WebApplication1.Enums;
 using WebApplication1.Models;
 using WebApplication1.Services;
@@ -14,7 +15,7 @@ namespace WebApplication1.Controllers
         [EnableCors("_myAllowSpecificOrigins")]
 
         [HttpGet("get")]
-        public IActionResult Get(string userName)
+        public string Get(string userName)
         {
             try
             {
@@ -23,12 +24,12 @@ namespace WebApplication1.Controllers
                 {
                     var CustomerId = db.Customers.First(a => userName == a.UserName).Id;
                     var t = db.Forms.Where((p) => p.CustomerId == CustomerId).ToList();
-                    return Ok(t);
+                    return JsonSerializer.Serialize(t);
                 }
             }
             catch (Exception ex)
             {
-                return NotFound($"Не найден заказчик");
+                return "";
             }
         }
 

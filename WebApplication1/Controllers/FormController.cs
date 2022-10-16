@@ -51,6 +51,7 @@ namespace WebApplication1.Controllers
                     X = x,
                     Y = y,
                 },
+                Priority = priority,
             };
             context.Forms.Add(form);
             context.SaveChanges();

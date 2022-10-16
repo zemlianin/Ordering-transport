@@ -53,5 +53,19 @@ namespace WebApplication1.Controllers
 
            
         }
+        [EnableCors("_myAllowSpecificOrigins")]
+
+        [HttpGet("accept")]
+        public IActionResult Accept(int formId, int transportId)
+        {
+            using (ApplicationContext db = new ApplicationContext())
+            {
+                var form = db.Forms.First(x => x.Id == formId);
+                var transport = db.Transport.First(x => x.Id == transportId);
+                var sender = new EmailClient("detulje@yandex.ru", "detulje", "edribnokhod@gmail.com", "fshvpmwznypalsgq");
+                sender.SendMail(form, transport);
+                return Ok();
+            }
+        }
     }
 }

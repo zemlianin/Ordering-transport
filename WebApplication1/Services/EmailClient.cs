@@ -21,7 +21,7 @@ namespace WebApplication1.Services
             this.to = to;
             this.password = password;
         }
-        private void SendMail(Form form, Transport transport)
+        public void SendMail(Form form, Transport transport)
         {
             Driver dr;
             using (ApplicationContext db = new ApplicationContext())

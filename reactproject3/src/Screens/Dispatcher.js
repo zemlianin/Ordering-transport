@@ -83,10 +83,6 @@ export default function DispatcherList() {
       });
   }, []);
 
-  // React.useEffect(() => {
-  //   console.log("+");
-  // }, [infoOpened]);
-
   return (
     <div>
       <div>
@@ -210,7 +206,6 @@ export default function DispatcherList() {
             onClickHand={() => setInfoOpened(false)}
           /> : null
         }
-        {/* {GetRequestInfoDB({ infoOpened: isInfoOpened, setInfoOpened: setInfoOpened })} */}
 
       </main>
 

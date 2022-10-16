@@ -72,17 +72,17 @@ function onSelectPriority(event) {
 
     // React.useEffect(() => {
     // fetch(("https://634b7709317dc96a30854e9b.mockapi.io/items"))
-    await fetch(("https://localhost:7090/Form/post"
-      + "?name=" + currentRequest.name
-      + "&lastName=" + currentRequest.lastName
-      + "&telephon=" + currentRequest.telephon
-      + "&x=" + currentRequest.x
-      + "&y=" + currentRequest.y
-      + "&beginDate=" + currentRequest.beginDate
-      + "&endDate=" + currentRequest.endDate
-      + "&typeOfVehicle=" + currentRequest.typeOfVehicle
-      + "&priority=" + currentRequest.priotity
-      + "&comment=" + currentRequest.comment))
+    // await fetch(("https://localhost:7090/Form/post"
+    //   + "?name=" + currentRequest.name
+    //   + "&lastName=" + currentRequest.lastName
+    //   + "&telephon=" + currentRequest.telephon
+    //   + "&x=" + currentRequest.x
+    //   + "&y=" + currentRequest.y
+    //   + "&beginDate=" + currentRequest.beginDate
+    //   + "&endDate=" + currentRequest.endDate
+    //   + "&typeOfVehicle=" + currentRequest.typeOfVehicle
+    //   + "&priority=" + currentRequest.priotity
+    //   + "&comment=" + currentRequest.comment))
     // }, []);
   }
 

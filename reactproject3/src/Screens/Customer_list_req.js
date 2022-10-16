@@ -10,43 +10,6 @@ import RequestForm from '../Components/RequestForm';
 import FooterClass from '../Components/FooterClass';
 import React from 'react';
 
-var login = "Anya";
-
-// var items = [
-//   {
-//     "name": "Артём",
-//     "lastName": "Федоров",
-//     "telephone": "+7(977) 777 77 77",
-//     "beginDate": "12.06.2022",
-//     "endDate": "12.06.2023",
-//     "address": "Россия, Архангельская область",
-//     "typeOfVehicle": "Погрузчик",
-//     "priority": "Стандартный",
-//     "comment": "comment1",
-//   },
-//   {
-//     "name": "Женя",
-//     "lastName": "Весёлый",
-//     "telephone": "+7(977) 777 77 77",
-//     "beginDate": "12.06.2022",
-//     "endDate": "12.06.2023",
-//     "address": "Россия, Архангельская область2",
-//     "typeOfVehicle": "Погрузчик",
-//     "priority": "Стандартный",
-//     "comment": "comment2",
-//   },
-//   {
-//     "name": "Саня",
-//     "lastName": "Грустный",
-//     "telephone": "+7(977) 777 77 77",
-//     "beginDate": "12.06.2022",
-//     "endDate": "12.06.2023",
-//     "address": "Россия, Архангельская область3",
-//     "typeOfVehicle": "Погрузчик",
-//     "priority": "Стандартный",
-//     "comment": "comment3",
-//   }
-// ]
 
 var currentObj = {
   name: "Default",
@@ -60,24 +23,6 @@ var currentObj = {
   comment: "DefaultComment",
 }
 
-// async function GetListOfRequestsDB() {
-//   // console.log("GetListOfRequestsDB");
-
-
-
-// async function onSubmit(event) {
-// // console.log(event);
-// console.log(currentRequest);
-// // alert(1);
-// console.log("+++");
-// var url = new URL("https://localhost:7090/Form/post?");
-// url.search = new URLSearchParams(currentRequest).toString();
-// const response = await fetch(url);
-// console.log(response);
-// const data = response.json();
-// console.log(data);
-// }
-
 function SetCurrent(item) {
   currentObj = item;
 }
@@ -87,8 +32,8 @@ export default function CustomerList() {
   const [isInfoOpened, setInfoOpened] = React.useState(false);
 
   React.useEffect(() => {
-    fetch(("https://634b7709317dc96a30854e9b.mockapi.io/items"))
-    // fetch(("https://localhost:7090/Customer/get?userName=Anya"))
+    // fetch(("https://634b7709317dc96a30854e9b.mockapi.io/items"))
+    fetch(("https://localhost:7090/Customer/get?userName=Anya"))
       .then((res) => {
         return res.json();
       })
@@ -97,10 +42,6 @@ export default function CustomerList() {
         setItems(json);
       });
   }, []);
-
-  // React.useEffect(() => {
-  //   console.log("+");
-  // }, [infoOpened]);
 
   return (
     <div>

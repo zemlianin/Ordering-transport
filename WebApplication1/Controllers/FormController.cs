@@ -52,6 +52,8 @@ namespace WebApplication1.Controllers
                     X = x,
                     Y = y,
                 },
+                Comment = comment,
+                Priority = 2
                 // Priority = priority,
             };
             // var service = new FormsService();

@@ -128,13 +128,16 @@ import React from 'react';
 //     </YMaps>
 // )
 
+export class Field{
+  static login = "default";
+}
 
 
 function App() {
   // const [items, setItems] = React.useState([]);
   const [isInfoOpened, setInfoOpened] = React.useState(false);
 
-  // var login = "Anya";
+ 
   // React.useEffect(() => {
   //   fetch(("https://localhost:7090/Customer/get?userName=" + login))
   //     .then((res) => {
@@ -147,20 +150,26 @@ function App() {
   // }, []);
   // console.log(items);
 
+  // var login = "default";
+
   function onChangeInputLogin(event) {
 
     console.log(event.target.value.length);
-    setCount(event.target.value.length);
-    if (count > 0) {
+    setLogin(event.target.value);
+    if (login.length > 0) {
       setIsCustomer(false);
     } else {
       setIsCustomer(true);
     }
+  }
 
+  function setInputValue(event) {
+    Field.login = login;
+    console.log("Login: " + Field.login);
   }
 
   const [isCustomer, setIsCustomer] = React.useState(true);
-  const [count, setCount] = React.useState(-1);
+  const [login, setLogin] = React.useState("");
 
   return (
     <div>
@@ -217,7 +226,7 @@ function App() {
                     type="button"
                     className="btn btn-lg btn-warning w-100 mx-0 text-p"
                     data-bs-dismiss="modal"
-                  // onClick={}
+                    onClick={setInputValue}
                   >
                     <Link
                       to="/customer"

@@ -118,8 +118,8 @@ namespace WebApplication1.Services
                     EndDate = "2.1.2020",
                     IsActive = 0,
                     Comment = "",
-                    Priority = 0
-
+                    Priority = 0,
+                    DriverId = 1
 
                 };
                 var Form2 = new Form()
@@ -132,7 +132,8 @@ namespace WebApplication1.Services
                     EndDate = "5.1.2020",
                     IsActive = 1,
                     Comment = "",
-                    Priority = 0
+                    Priority = 0,
+                    DriverId = 2
 
                 };
                 var Form3 = new Form()
@@ -145,7 +146,8 @@ namespace WebApplication1.Services
                     EndDate = "9.1.2020",
                     IsActive = 2,
                     Comment = "",
-                    Priority = 0
+                    Priority = 0,
+                    DriverId = 2
                 };
                 var Form4 = new Form()
                 {
@@ -157,7 +159,8 @@ namespace WebApplication1.Services
                     EndDate = "11.1.2020",
                     IsActive = 0,
                     Comment = "",
-                    Priority = 0
+                    Priority = 0,
+                    DriverId = 1
                 };
                 var Form5 = new Form()
                 {
@@ -169,7 +172,8 @@ namespace WebApplication1.Services
                     EndDate = "8.1.2020",
                     IsActive = 1,
                     Comment = "",
-                    Priority = 0
+                    Priority = 0,
+                    DriverId = 3
                 };
                 db.Forms.Add(Form1);
                 db.Forms.Add(Form2);

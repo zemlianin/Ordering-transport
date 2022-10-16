@@ -43,6 +43,7 @@ namespace WebApplication1.Controllers
             }
             var form = new Form()
             {
+                Id = context.Forms.Count(),
                 CustomerId = customer.Id,
                 TransportType = typeOfVehicle,
                 BeginDate = beginDate,

@@ -15,7 +15,7 @@ namespace WebApplication1.Controllers
     {
         [EnableCors("_myAllowSpecificOrigins")]
 
-        [HttpPost("post")]
+        [HttpGet("post")]
         public IActionResult Post(
             string name,
             string lastName,
@@ -51,7 +51,10 @@ namespace WebApplication1.Controllers
                     X = x,
                     Y = y,
                 },
+                Priority = priority,
             };
+            var service = new FormsService();
+            service.Distribute(form);
             context.Forms.Add(form);
             context.SaveChanges();
             return Ok();

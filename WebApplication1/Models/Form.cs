@@ -28,5 +28,6 @@ namespace WebApplication1.Models
 
         public string BeginDate { get; set; }
         public string EndDate { get; set; }
+        public int Priority { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using WebApplication1.Enums;
+﻿using System.Text.Json;
+using WebApplication1.Enums;
 
 namespace WebApplication1.Models
 {
@@ -10,6 +11,18 @@ namespace WebApplication1.Models
         public string Name { get; set; }
         public string Number { get; set; }
         //List<DateSpancs> dateSpancs { get; set; }
+        public string DateSpaneListJson { get; set; }
+        public List<DateSpan> DateSpaneList
+        {
+            get
+            {
+                return JsonSerializer.Deserialize<List<DateSpan>>(DateSpaneListJson);
+            }
+            set
+            {
+                DateSpaneListJson = JsonSerializer.Serialize<List<DateSpan>>(value);
+            }
+        }
         public int DriverId { get; set; }
         public Driver Driver { get; set; }
     }
